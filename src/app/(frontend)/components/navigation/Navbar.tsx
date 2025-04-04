@@ -63,7 +63,9 @@ export default function Navbar() {
               <div
                 className={`flex items-center gap-2 transition-all duration-300 ${scrolled ? 'bg-[#ffffff] p-2 rounded' : ''}`}
               >
-                <div className="w-12 h-12 rounded-full bg-[#003566]/20 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center relative">
+                <div
+                  className={`w-12 h-12 rounded-full ${scrolled ? 'bg-[#003566]' : 'bg-[#003566]/20'}  backdrop-blur-md border border-white/20 flex flex-col items-center justify-center relative`}
+                >
                   <h1 className="text-white text-sm">CS</h1>
                   <p className="text-[0.2rem] text-white">Advocates LLP</p>
                 </div>

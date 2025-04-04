@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import React from 'react'
 import HeroBlock from './components/homepage/HeroBlock'
+import LandingAbout from './components/homepage/LandingAbout'
 
 import config from '@/payload.config'
 import './globals.css'
@@ -34,6 +35,8 @@ function renderBlock(block: any, index: number) {
   switch (block.blockType) {
     case 'hero':
       return <HeroBlock key={index} block={block} />
+    case 'home-about':
+      return <LandingAbout key={index} block={block} />
 
     default:
       return null

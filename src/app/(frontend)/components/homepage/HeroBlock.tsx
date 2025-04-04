@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import { ArrowRight, PhoneCall, Scale } from 'lucide-react'
+import { PhoneCall } from 'lucide-react'
 import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { useInView } from 'react-intersection-observer'
