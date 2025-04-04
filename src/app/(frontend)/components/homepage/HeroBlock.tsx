@@ -43,14 +43,14 @@ export default function HeroBlock({ block }: HeroBlockProps) {
       />
 
       {/* Gradient overlay for better text visibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black to-black/70 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black to-black/40 z-0" />
 
       {/* Animated decorative elements */}
       <motion.div
-        className="absolute top-10 right-10 sm:top-20 sm:right-20 w-48 sm:w-64 h-48 sm:h-64 bg-[#f49200] rounded-full filter blur-3xl opacity-10"
+        className="absolute top-10 right-10 sm:top-20 sm:right-20 w-48 sm:w-64 h-48 sm:h-64 bg-[#003566] rounded-full filter blur-3xl opacity-20"
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.1, 0.15, 0.1],
+          opacity: [0.2, 0.25, 0.2],
         }}
         transition={{
           duration: 8,
@@ -60,10 +60,10 @@ export default function HeroBlock({ block }: HeroBlockProps) {
       />
 
       <motion.div
-        className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-64 sm:w-96 h-64 sm:h-96 bg-[#f49200] rounded-full filter blur-3xl opacity-10"
+        className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-64 sm:w-96 h-64 sm:h-96 bg-[#003566] rounded-full filter blur-3xl opacity-20"
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.1, 0.2, 0.1],
+          opacity: [0.2, 0.3, 0.2],
         }}
         transition={{
           duration: 12,
@@ -87,7 +87,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
           >
             {/* Accent line above heading */}
             <motion.div
-              className="w-16 h-1 bg-[#f49200] mb-6"
+              className="w-16 h-1 bg-[#003566] mb-6"
               variants={{
                 hidden: { width: 0, opacity: 0 },
                 visible: { width: 64, opacity: 1, transition: { duration: 0.8 } },
@@ -125,7 +125,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
               <motion.div whileHover={{ y: -4 }} whileTap={{ y: 0 }}>
                 <Link
                   href="/contact"
-                  className="bg-[#f49200] hover:bg-[#e08600] text-white px-6 sm:px-8 py-3 sm:py-4 text-lg rounded-lg shadow-xl flex items-center group transition-all duration-300 w-1/2 md:w-auto"
+                  className="bg-[#003566] hover:bg-[#00274d] text-white px-6 sm:px-8 py-3 sm:py-4 text-lg rounded-lg shadow-xl flex items-center group transition-all duration-300 w-1/2 md:w-auto"
                 >
                   Contact Us
                   <motion.div className="ml-2" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
@@ -137,7 +137,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
               <motion.div whileHover={{ y: -4 }} whileTap={{ y: 0 }}>
                 <Link
                   href="/practice-areas"
-                  className="border-2 border-[#f49200]/80 text-white hover:bg-[#f49200]/20 px-6 sm:px-8 py-3 sm:py-4 text-lg rounded-lg transition-all duration-300 shadow-lg"
+                  className="border-2 border-[#003566]/80 text-white hover:bg-[#003566]/20 px-6 sm:px-8 py-3 sm:py-4 text-lg rounded-lg transition-all duration-300 shadow-lg"
                 >
                   Our Practice Areas
                 </Link>
@@ -161,8 +161,8 @@ export default function HeroBlock({ block }: HeroBlockProps) {
             }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-[#f49200]/20 rounded-full filter blur-xl scale-150" />
-            <div className="w-32 h-32 rounded-full bg-[#f49200]/10 backdrop-blur-md border border-white/20 flex items-center justify-center relative">
+            <div className="absolute inset-0 bg-[#003566]/30 rounded-full filter blur-xl scale-150" />
+            <div className="w-50 h-50 rounded-full bg-[#003566]/20 backdrop-blur-md border border-white/20 flex items-center justify-center relative">
               <motion.div
                 animate={{
                   rotateZ: [0, 5, -5, 0],
@@ -172,8 +172,10 @@ export default function HeroBlock({ block }: HeroBlockProps) {
                   repeat: Infinity,
                   repeatType: 'reverse',
                 }}
+                className="absolute inset-0 flex flex-col items-center justify-center"
               >
-                <Scale className="w-16 h-16 text-[#f49200]" />
+                <h1 className="text-white text-8xl">CS</h1>
+                <p className="text-base text-white">Advocates LLP</p>
               </motion.div>
             </div>
           </motion.div>
@@ -218,7 +220,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
       </div>
 
       {/* Bottom accent bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#f49200] to-[#f49200]/50 z-20">
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#003566] to-[#003566]/50 z-20">
         <motion.div
           className="h-full bg-white/50"
           animate={{
@@ -234,7 +236,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
       </div>
 
       {/* Top accent element */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-[#f49200] z-20" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-[#003566] z-20" />
     </section>
   )
 }

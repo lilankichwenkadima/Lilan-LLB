@@ -54,21 +54,24 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
       <div
-        className={`${scrolled ? 'bg-[#ffffff] border-b-4 border-[#f49200]' : 'bg-transparent'} transition-all duration-300`}
+        className={`${scrolled ? 'bg-[#ffffff] border-b-4 border-[#003566]' : 'bg-transparent'} transition-all duration-300`}
       >
         <div className="max-w-screen-xl px-4 lg:px-8 mx-auto">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <div
-                className={`flex items-center transition-all duration-300 ${scrolled ? 'bg-[#ffffff] p-2 rounded' : ''}`}
+                className={`flex items-center gap-2 transition-all duration-300 ${scrolled ? 'bg-[#ffffff] p-2 rounded' : ''}`}
               >
-                <Scale size={28} className="text-[#f49200] mr-2" />
+                <div className="w-12 h-12 rounded-full bg-[#003566]/20 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center relative">
+                  <h1 className="text-white text-sm">CS</h1>
+                  <p className="text-[0.2rem] text-white">Advocates LLP</p>
+                </div>
                 <div className="flex flex-col">
                   <span
                     className={`font-serif text-xl font-bold ${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} tracking-wide`}
                   >
-                    LILAN<span className="text-[#f49200]">KICHWEN</span>KADIMA
+                    LILAN<span className="text-[#003566]">KICHWEN</span>KADIMA
                   </span>
                   <span
                     className={`text-xs ${scrolled ? 'text-[#34373e]/80' : 'text-[#ffffff]/80'} tracking-wider uppercase`}
@@ -85,7 +88,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={nav.link}
-                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} hover:text-[#f49200] font-medium transition-colors duration-200`}
+                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} hover:text-[#003566] font-medium transition-colors duration-200`}
                 >
                   {nav.label}
                 </Link>
@@ -113,13 +116,13 @@ export default function Navbar() {
               <Link
                 key={index}
                 href={nav.link}
-                className="text-[#34373e] hover:text-[#f49200] font-medium transition-colors duration-200"
+                className="text-[#34373e] hover:text-[#003566] font-medium transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {nav.label}
               </Link>
             ))}
-            <Button className="bg-[#f49200] hover:bg-[#e08600] text-white w-full">
+            <Button className="bg-[#003566] hover:bg-[#00274d] text-white w-full">
               Schedule a Consultation
             </Button>
           </div>
