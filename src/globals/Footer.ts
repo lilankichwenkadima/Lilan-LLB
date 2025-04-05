@@ -4,13 +4,6 @@ export const Footer: GlobalConfig = {
   slug: 'footer',
   fields: [
     {
-      name: 'logo',
-      label: 'Logo',
-      type: 'upload',
-      relationTo: 'media',
-      required: true,
-    },
-    {
       name: 'nav',
       label: 'Nav',
       type: 'array',

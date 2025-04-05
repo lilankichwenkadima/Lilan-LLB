@@ -16,7 +16,7 @@ export const OurTeam: Block = {
       required: true,
     },
     {
-      name: 'attorney-profiles',
+      name: 'attorney_profiles',
       label: 'Attorney Profiles',
       type: 'relationship',
       relationTo: 'team',

@@ -211,7 +211,7 @@ export interface Page {
         | {
             heading: string;
             description: string;
-            'attorney-profiles'?: (number | Team)[] | null;
+            attorney_profiles?: (number | Team)[] | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'our-team';
@@ -407,7 +407,7 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               heading?: T;
               description?: T;
-              'attorney-profiles'?: T;
+              attorney_profiles?: T;
               id?: T;
               blockName?: T;
             };
@@ -489,7 +489,6 @@ export interface Header {
  */
 export interface Footer {
   id: number;
-  logo: number | Media;
   nav: {
     label?: string | null;
     link?: string | null;
@@ -520,7 +519,6 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  logo?: T;
   nav?:
     | T
     | {
