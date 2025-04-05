@@ -41,9 +41,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
-  routes: {
-    admin: '/dashboard',
-  },
+
   sharp,
   plugins: [
     payloadCloudPlugin(),
