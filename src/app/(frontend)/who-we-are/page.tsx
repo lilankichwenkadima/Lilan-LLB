@@ -3,6 +3,7 @@ import React from 'react'
 
 import config from '@/payload.config'
 import AboutHero from '../components/aboutpage/AboutHero'
+import GoalsSection from '../components/aboutpage/Goals'
 
 export default async function AboutPage() {
   const payloadConfig = await config
@@ -33,6 +34,8 @@ function renderBlock(block: any, index: number) {
   switch (block.blockType) {
     case 'about':
       return <AboutHero key={index} block={block} />
+    case 'goals':
+      return <GoalsSection key={index} block={block} />
 
     default:
       return null
