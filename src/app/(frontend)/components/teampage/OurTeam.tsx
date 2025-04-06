@@ -65,7 +65,7 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
 
   return (
     <section
-      className="py-20 relative overflow-hidden"
+      className="pt-20 relative overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${mainColor} 0%, #001F3F 100%)`,
       }}
@@ -105,7 +105,7 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
                   <div className="relative h-64 w-full">
                     <Image
                       fill
-                      src={attorney.photo?.url || '/api/placeholder/400/300'}
+                      src={attorney.photo?.url}
                       alt={attorney.name}
                       className="object-cover"
                     />
@@ -128,8 +128,8 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
             ))}
           </CarouselContent>
           <div className="flex justify-center mt-8">
-            <CarouselPrevious className="mr-2 bg-white/20 text-white hover:bg-white hover:text-gray-800 border-none" />
-            <CarouselNext className="ml-2 bg-white/20 text-white hover:bg-white hover:text-gray-800 border-none" />
+            <CarouselPrevious className="mr-2 bg-white/20 text-white hover:bg-white hover:text-gray-800 border-none absolute md:relative top-1/2 -left-4 z-20 transform -translate-y-1/2" />
+            <CarouselNext className="ml-2 bg-white/20 text-white hover:bg-white hover:text-gray-800 border-none absolute md:relative top-1/2 -right-4 z-20 transform -translate-y-1/2" />
           </div>
         </Carousel>
       </div>
