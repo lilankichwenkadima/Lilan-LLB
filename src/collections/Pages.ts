@@ -3,6 +3,7 @@ import { LandingAbout } from '@/blocks/homepage/home-about/schema'
 import { ServicesBlock } from '@/blocks/homepage/services/schema'
 import { WhyChooseUs } from '@/blocks/homepage/why-us/schema'
 import { OurTeam } from '@/blocks/homepage/our-team/schema'
+import { CTA } from '@/blocks/homepage/cta/schema'
 import type { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -27,7 +28,7 @@ export const Pages: CollectionConfig = {
       name: 'layout',
       label: 'Layout',
       type: 'blocks',
-      blocks: [Hero, LandingAbout, ServicesBlock, WhyChooseUs, OurTeam],
+      blocks: [Hero, LandingAbout, ServicesBlock, WhyChooseUs, OurTeam, CTA],
     },
   ],
 }

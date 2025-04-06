@@ -216,6 +216,13 @@ export interface Page {
             blockName?: string | null;
             blockType: 'our-team';
           }
+        | {
+            title: string;
+            description: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta-section';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -408,6 +415,14 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               description?: T;
               attorney_profiles?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'cta-section'?:
+          | T
+          | {
+              title?: T;
+              description?: T;
               id?: T;
               blockName?: T;
             };

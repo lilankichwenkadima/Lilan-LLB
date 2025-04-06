@@ -27,10 +27,14 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    meta: {
+      title: 'LilanKichwenKadima LLB',
+      description: 'LilanKichwenKadima LLB Official Website',
+    },
   },
   collections: [Users, Media, Pages, PracticeAreas, Team],
   globals: [Header, Footer],
-  serverURL: 'http://localhost:3000',
+  serverURL: process.env.PUBLIC_SITE_URL || 'http://localhost:3000',
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -44,7 +48,6 @@ export default buildConfig({
 
   sharp,
   plugins: [
-    payloadCloudPlugin(),
     s3Storage({
       collections: {
         media: {
