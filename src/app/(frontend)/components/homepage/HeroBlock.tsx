@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PhoneCall } from 'lucide-react'
 import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
@@ -21,6 +21,9 @@ export default function HeroBlock({ block }: HeroBlockProps) {
     'With decades of combined experience, our attorneys provide strategic counsel and aggressive advocacy tailored to your unique legal challenges.'
   const heroImage = block?.hero_image?.url || '/api/placeholder/800/600'
 
+  // State to hold the background image load status
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
+
   // Setup intersection observer for scroll animations
   const controls = useAnimation()
   const [ref, inView] = useInView({
@@ -34,11 +37,20 @@ export default function HeroBlock({ block }: HeroBlockProps) {
     }
   }, [controls, inView])
 
+  // Preload the hero image when the component mounts
+  useEffect(() => {
+    const image = new Image()
+    image.src = heroImage
+    image.onload = () => {
+      setIsImageLoaded(true)
+    }
+  }, [heroImage])
+
   return (
     <section ref={ref} className="relative h-auto md:min-h-screen xl:min-h-[85vh] overflow-hidden">
       {/* Full-span background image with overlay */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed z-0"
+        className={`absolute inset-0 w-full h-full bg-cover bg-center bg-fixed z-0 transition-opacity duration-1000 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ backgroundImage: `url('${heroImage}')` }}
       />
 
@@ -58,7 +70,6 @@ export default function HeroBlock({ block }: HeroBlockProps) {
           repeatType: 'reverse',
         }}
       />
-
       <motion.div
         className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-64 sm:w-96 h-64 sm:h-96 bg-[#003566] rounded-full filter blur-3xl opacity-20"
         animate={{
@@ -200,7 +211,6 @@ export default function HeroBlock({ block }: HeroBlockProps) {
                 transition={{ duration: 2, delay: 0.5 + i * 0.1 }}
               />
             ))}
-
             {[...Array(6)].map((_, i) => (
               <motion.line
                 key={`vertical-${i}`}
