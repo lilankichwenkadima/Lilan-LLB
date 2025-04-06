@@ -73,7 +73,7 @@ export default function Navbar() {
                   <span
                     className={`font-serif text-xl font-bold ${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} tracking-wide`}
                   >
-                    LILAN<span className="text-[#003566]">KICHWEN</span>KADIMA
+                    LILAN<span className="text-blue-300">KICHWEN</span>KADIMA
                   </span>
                   <span
                     className={`text-xs ${scrolled ? 'text-[#34373e]/80' : 'text-[#ffffff]/80'} tracking-wider uppercase`}

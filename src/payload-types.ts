@@ -247,6 +247,12 @@ export interface Page {
             blockName?: string | null;
             blockType: 'core-values';
           }
+        | {
+            practiceAreas?: (number | PracticeArea)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'practice-areas-block';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -474,6 +480,13 @@ export interface PagesSelect<T extends boolean = true> {
                     description?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        'practice-areas-block'?:
+          | T
+          | {
+              practiceAreas?: T;
               id?: T;
               blockName?: T;
             };

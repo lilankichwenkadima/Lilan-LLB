@@ -6,6 +6,7 @@ import { OurTeam } from '@/blocks/homepage/our-team/schema'
 import { CTA } from '@/blocks/homepage/cta/schema'
 import type { CollectionConfig } from 'payload'
 import { About, Goals, Values } from '@/blocks/about/schema'
+import { PracticeAreasBlock } from '@/blocks/practiceareas/schema'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -29,7 +30,18 @@ export const Pages: CollectionConfig = {
       name: 'layout',
       label: 'Layout',
       type: 'blocks',
-      blocks: [Hero, LandingAbout, ServicesBlock, WhyChooseUs, OurTeam, CTA, About, Goals, Values],
+      blocks: [
+        Hero,
+        LandingAbout,
+        ServicesBlock,
+        WhyChooseUs,
+        OurTeam,
+        CTA,
+        About,
+        Goals,
+        Values,
+        PracticeAreasBlock,
+      ],
     },
   ],
 }
