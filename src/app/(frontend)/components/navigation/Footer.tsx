@@ -66,7 +66,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#003566] rounded-full filter blur-3xl opacity-10"></div>
 
       {/* Footer main content */}
-      <div className="container mx-auto px-6 py-16 relative z-10">
+      <div className="mx-auto px-6 py-16 relative z-10">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
           initial="hidden"
@@ -76,12 +76,12 @@ export default function Footer() {
           {/* Column 1: Logo and Info */}
           <motion.div variants={itemVariants}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-[#003566]/20 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center relative">
-                <h1 className="text-white text-xs">CS</h1>
+              <div className="md:w-10 md:h-10 xl:w-10 xl:h-10 rounded-full bg-[#003566]/20 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center relative">
+                <h1 className="text-white text-[0.6rem] xl:text-xs">CS</h1>
                 <p className="text-[0.2rem] text-white">Advocates LLP</p>
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-base font-bold text-white tracking-wide">
+                <span className="font-serif text-sm md:text-xs xl:text-base font-bold text-white tracking-wide">
                   LILAN<span className="text-[#74b1dd]">KICHWEN</span>KADIMA
                 </span>
                 <span className="text-[0.4rem] text-white/80 tracking-wider uppercase">
