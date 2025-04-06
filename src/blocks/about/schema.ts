@@ -16,24 +16,11 @@ export const Goals: Block = {
   ],
 }
 
-export const TheTeam: Block = {
-  slug: 'the-team',
-  fields: [
-    {
-      name: 'team_member',
-      label: 'Team Member',
-      type: 'relationship',
-      relationTo: 'team',
-      hasMany: true,
-    },
-  ],
-}
-
 export const Values: Block = {
   slug: 'core-values',
   fields: [
     {
-      name: 'our-values',
+      name: 'our_values',
       label: 'Core Values',
       type: 'array',
       minRows: 1,

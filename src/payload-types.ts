@@ -209,8 +209,6 @@ export interface Page {
             blockType: 'why-choose-us';
           }
         | {
-            heading: string;
-            description: string;
             attorney_profiles?: (number | Team)[] | null;
             id?: string | null;
             blockName?: string | null;
@@ -238,13 +236,7 @@ export interface Page {
             blockType: 'goals';
           }
         | {
-            team_member?: (number | Team)[] | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'the-team';
-          }
-        | {
-            'our-values'?:
+            our_values?:
               | {
                   title: string;
                   description: string;
@@ -444,8 +436,6 @@ export interface PagesSelect<T extends boolean = true> {
         'our-team'?:
           | T
           | {
-              heading?: T;
-              description?: T;
               attorney_profiles?: T;
               id?: T;
               blockName?: T;
@@ -474,17 +464,10 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        'the-team'?:
-          | T
-          | {
-              team_member?: T;
-              id?: T;
-              blockName?: T;
-            };
         'core-values'?:
           | T
           | {
-              'our-values'?:
+              our_values?:
                 | T
                 | {
                     title?: T;
