@@ -65,7 +65,7 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
 
   return (
     <section
-      className="pt-20 relative overflow-hidden"
+      className="pt-28 relative overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${mainColor} 0%, #001F3F 100%)`,
       }}
