@@ -37,8 +37,8 @@ export default buildConfig({
   cors: '*',
   collections: [Users, Media, Pages, PracticeAreas, Team],
   globals: [Header, Footer],
-  // serverURL: process.env.PUBLIC_SITE_URL || 'http://localhost:3000',
-  serverURL: 'http://localhost:3000',
+  serverURL: process.env.PUBLIC_SITE_URL || 'http://localhost:3000',
+  // serverURL: 'http://localhost:3000',
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
