@@ -260,7 +260,7 @@ export default function ServicesCarouselSection({ block }: ServicesBlockProps) {
                     <h3 className="text-xl font-bold mb-4">{service.title}</h3>
                     <p className="text-white/80 mb-6 flex-grow">{service.description}</p>
                     <Link
-                      href={`/services/${service.id}`}
+                      href={`/practice-areas/${service.id}`}
                       className="inline-flex items-center text-white font-medium hover:underline mt-auto"
                     >
                       Learn more
