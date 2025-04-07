@@ -286,7 +286,20 @@ export interface Team {
   name: string;
   photo: number | Media;
   role: string;
+  email: string;
+  phone: string;
+  linkedin?: string | null;
+  twitter?: string | null;
+  facebook?: string | null;
+  instagram?: string | null;
   bio: string;
+  experience: number;
+  languages?:
+    | {
+        title: string;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -720,7 +733,20 @@ export interface TeamSelect<T extends boolean = true> {
   name?: T;
   photo?: T;
   role?: T;
+  email?: T;
+  phone?: T;
+  linkedin?: T;
+  twitter?: T;
+  facebook?: T;
+  instagram?: T;
   bio?: T;
+  experience?: T;
+  languages?:
+    | T
+    | {
+        title?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

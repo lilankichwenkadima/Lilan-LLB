@@ -220,10 +220,10 @@ export default function HeroBlock({ block }: HeroBlockProps) {
             >
               <motion.div whileHover={{ y: -4 }} whileTap={{ y: 0 }}>
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-lg rounded-lg shadow-xl flex items-center justify-center group transition-all duration-300 w-full md:w-auto"
                 >
-                  Speak With An Attorney
+                  Contact Us Today
                   <motion.div className="ml-2" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                     <PhoneCall className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </motion.div>

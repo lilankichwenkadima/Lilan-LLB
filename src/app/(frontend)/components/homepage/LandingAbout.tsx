@@ -125,7 +125,7 @@ export default function AboutUsSection({ block }: AboutUsBlockProps) {
           {/* CTA */}
           <motion.div variants={fadeInUp} className="text-center mt-12">
             <Link
-              href="/about"
+              href="/who-we-are"
               className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#003566] text-[#003566] font-medium hover:bg-[#003566] hover:text-white transition-colors duration-200 rounded"
             >
               Learn more about our expertise

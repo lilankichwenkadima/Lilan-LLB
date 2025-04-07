@@ -154,7 +154,7 @@ export default function TeamSection({ block }: TeamBlockProps) {
                             </p>
                             <p className="text-white/90 mb-4">{attorney.bio}</p>
                             <Link
-                              href={`/team/${attorney.id}`}
+                              href={`/our-team/${attorney.id}`}
                               className="inline-flex items-center text-white font-medium border border-white rounded-3xl p-2 hover:bg-white hover:text-[#003566] transition-colors duration-200"
                               aria-label={`View profile of ${attorney.name}`}
                             >

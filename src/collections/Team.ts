@@ -26,7 +26,29 @@ export const Team: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    { name: 'email', label: 'Email', type: 'email', required: true },
+    { name: 'phone', label: 'Phone', type: 'text', required: true },
+    { name: 'linkedin', label: 'LinkedIn Profile', type: 'text' },
+    { name: 'twitter', label: 'Twitter Profile', type: 'text' },
+    { name: 'facebook', label: 'Facebook Profile', type: 'text' },
+    { name: 'instagram', label: 'Instagram Profile', type: 'text' },
     { name: 'bio', label: 'Member Bio', type: 'textarea', required: true },
+    { name: 'experience', label: 'Years of Experience', type: 'number', required: true },
+    {
+      name: 'languages',
+      label: 'Languages',
+      type: 'array',
+      minRows: 1,
+      maxRows: 4,
+      fields: [
+        {
+          name: 'title',
+          label: 'Language Title',
+          type: 'text',
+          required: true,
+        },
+      ],
+    },
   ],
 }
 

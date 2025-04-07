@@ -123,7 +123,7 @@ export default function CTABlock({ block }: HeroBlockProps) {
               }}
             >
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md font-medium transition-all duration-300 shadow-lg hover:shadow-xl group"
               >
                 <PhoneCall className="w-5 h-5" />
@@ -132,7 +132,7 @@ export default function CTABlock({ block }: HeroBlockProps) {
               </Link>
 
               <Link
-                href="/services"
+                href="/practice-areas"
                 className="flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 hover:border-white/60 text-white py-3 px-6 rounded-md font-medium transition-all duration-300"
               >
                 <BookOpen className="w-5 h-5" />
@@ -171,7 +171,7 @@ export default function CTABlock({ block }: HeroBlockProps) {
               </p>
 
               <Link
-                href="/contact"
+                href="tel:+1234567890"
                 className="flex items-center justify-center gap-2 mt-4 bg-white/10 hover:bg-white/20 text-white py-2.5 px-4 rounded-md font-medium transition-all duration-300 border border-white/20"
               >
                 <PhoneCall className="w-4 h-4" />

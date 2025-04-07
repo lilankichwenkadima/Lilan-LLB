@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 
 interface NavItems {
@@ -90,7 +89,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={nav.link}
-                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} hover:text-[#003566] font-medium transition-colors duration-200`}
+                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} font-medium`}
                 >
                   {nav.label}
                 </Link>
@@ -124,9 +123,6 @@ export default function Navbar() {
                 {nav.label}
               </Link>
             ))}
-            <Button className="bg-[#003566] hover:bg-[#00274d] text-white w-full">
-              Schedule a Consultation
-            </Button>
           </div>
         </div>
       )}
