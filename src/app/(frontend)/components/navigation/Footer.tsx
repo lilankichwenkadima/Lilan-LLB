@@ -145,7 +145,7 @@ export default function Footer() {
 
           <div className="flex gap-8">
             <p className="text-white/50 text-xs">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo porro
+              Lorem ipsum dor sit amet consectetur adipisicing elit. Temporibus illo porro
               exercitationem.
             </p>
           </div>
