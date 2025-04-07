@@ -28,10 +28,10 @@ export default function Navbar() {
         // Fallback navigation items
         setNavItems([
           { label: 'Home', link: '/' },
-          { label: 'About', link: '/about' },
+          { label: 'About', link: '/who-we-are' },
           { label: 'Practice Areas', link: '/practice-areas' },
-          { label: 'Attorneys', link: '/attorneys' },
-          { label: 'Contact', link: '/contact' },
+          { label: 'Attorneys', link: '/our-team' },
+          { label: 'Contact', link: '/contact-use' },
         ])
       }
     }
@@ -89,7 +89,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={nav.link}
-                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} font-medium`}
+                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} font-medium text-sm`}
                 >
                   {nav.label}
                 </Link>

@@ -19,8 +19,8 @@ import { fetchAllMembers, fetchRelatedMembers } from '@/lib/ourTeamUtils'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 
-export default async function TeamDescription({ params }: { params: { id: string } }) {
-  const { id } = params
+export default async function TeamDescription({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 

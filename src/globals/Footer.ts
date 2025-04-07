@@ -23,11 +23,5 @@ export const Footer: GlobalConfig = {
       minRows: 1,
       maxRows: 5,
     },
-    {
-      name: 'copyrightNotice',
-      label: 'Copyright Notice',
-      type: 'text',
-      required: true,
-    },
   ],
 }

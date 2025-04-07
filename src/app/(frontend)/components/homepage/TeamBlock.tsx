@@ -143,16 +143,24 @@ export default function TeamSection({ block }: TeamBlockProps) {
                           <p className="text-base font-medium text-white/90 mb-1">
                             {attorney.role}
                           </p>
+
+                          <Link
+                            href={`/our-team/${attorney.id}`}
+                            className="inline-flex md:hidden items-center text-white text-xs font-medium border border-white rounded-3xl p-2 hover:bg-white hover:text-[#003566] transition-colors duration-200"
+                            aria-label={`View profile of ${attorney.name}`}
+                          >
+                            View profile
+                          </Link>
                         </div>
 
                         {/* Bio overlay on hover */}
-                        <div className="absolute inset-0 bg-[#003566]/90 flex flex-col justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
+                        <div className="absolute inset-0 bg-[#003566]/90 hidden md:flex flex-col justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
                           <div className="text-white">
                             <h3 className="text-xl font-bold mb-2">{attorney.name}</h3>
                             <p className="text-sm font-medium text-white/80 mb-4">
                               {attorney.role}
                             </p>
-                            <p className="text-white/90 mb-4">{attorney.bio}</p>
+                            <p className="text-white/90 mb-4 line-clamp-4">{attorney.bio}</p>
                             <Link
                               href={`/our-team/${attorney.id}`}
                               className="inline-flex items-center text-white font-medium border border-white rounded-3xl p-2 hover:bg-white hover:text-[#003566] transition-colors duration-200"

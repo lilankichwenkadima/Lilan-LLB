@@ -8,8 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 interface OurTeamBlockProps {
   block: {
@@ -119,9 +119,13 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
 
                   <div className="p-6">
                     <p className="text-gray-700 line-clamp-3 mb-4">{attorney.bio}</p>
-                    <Button className="mt-auto" style={{ backgroundColor: mainColor }}>
+                    <Link
+                      href={`/our-team/${attorney.id}`}
+                      className="mt-auto py-2 px-4 text-sm font-medium text-white rounded-full border border-white hover:bg-white hover:text-white/60 transition-colors duration-200 flex items-center justify-center"
+                      style={{ backgroundColor: mainColor }}
+                    >
                       Read More <ChevronRight size={16} className="ml-1" />
-                    </Button>
+                    </Link>
                   </div>
                 </div>
               </CarouselItem>
