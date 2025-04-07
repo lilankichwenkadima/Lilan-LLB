@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Scale } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 interface NavItems {
   label: string

@@ -3,53 +3,23 @@ import config from '@/payload.config'
 import { getPayload } from 'payload'
 import Link from 'next/link'
 import { ArrowLeft, Phone } from 'lucide-react'
+import { fetchAllPracticeAreas, fetchRelatedPracticeAreas } from '@/lib/practiceAreaUtils'
 
-export async function fetchAllPracticeAreas() {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { docs: practiceAreas } = await payload.find({
-    collection: 'practice-areas',
-    depth: 2,
-    limit: 1000,
-  })
-
-  return practiceAreas.map((area) => ({
-    id: area.id,
-  }))
-}
-
-export async function fetchRelatedPracticeAreas(currentId: string) {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { docs: practiceAreas } = await payload.find({
-    collection: 'practice-areas',
-    depth: 1,
-    limit: 3,
-    where: {
-      id: {
-        not_equals: currentId,
-      },
-    },
-  })
-
-  return practiceAreas
-}
-
-export default async function PracticeDescription({ params }: { params: { id: string } }) {
-  const par = await params
+export default async function PracticeDescription({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
   const { docs } = await payload.find({
     collection: 'practice-areas',
     where: {
       id: {
-        equals: par.id,
+        equals: id,
       },
     },
   })
 
   const practiceArea = docs[0]
-  const relatedAreas = await fetchRelatedPracticeAreas(par.id)
+  const relatedAreas = await fetchRelatedPracticeAreas(id)
 
   // Split the description into paragraphs for better formatting
   const descriptionParagraphs = practiceArea?.description?.split('\n\n') || ['']
@@ -201,7 +171,7 @@ export default async function PracticeDescription({ params }: { params: { id: st
   )
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ id: string }[]> {
   const practiceAreas = await fetchAllPracticeAreas()
   return practiceAreas.map((area) => ({
     id: String(area.id),

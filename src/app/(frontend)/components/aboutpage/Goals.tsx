@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Target, Eye, ChevronRight } from 'lucide-react'
+import { Target, Eye } from 'lucide-react'
 
 interface GoalsBlockProps {
   block: {
