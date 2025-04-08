@@ -28,7 +28,9 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
     "embla-carousel-react": "^8.6.0",
+    "express": "^5.1.0",
     "framer-motion": "^12.6.3",
     "graphql": "^16.8.1",
     "lucide-react": "^0.487.0",
@@ -46,6 +48,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@types/express": "^5.0.1",
     "@types/node": "^22.5.4",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "19.0.12",
