@@ -223,32 +223,6 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
                     ))}
                   </div>
                 </div>
-
-                <div>
-                  <h4 className="text-white/90 text-sm font-medium mb-3 flex items-center gap-2">
-                    <Briefcase className="h-4 w-4" /> Experience
-                  </h4>
-                  <div className="space-y-2">
-                    {['less-than-5', '5-10', 'more-than-10'].map((exp) => (
-                      <div key={exp} className="flex items-center">
-                        <input
-                          id={`mobile-exp-${exp}`}
-                          type="checkbox"
-                          checked={selectedExperience === exp}
-                          onChange={() => handleExperienceChange(exp)}
-                          className="h-4 w-4 rounded border-white/30 bg-white/10"
-                        />
-                        <label htmlFor={`mobile-exp-${exp}`} className="ml-2 text-sm text-white/90">
-                          {exp === 'less-than-5'
-                            ? 'Less than 5 years'
-                            : exp === '5-10'
-                              ? '5-10 years'
-                              : 'More than 10 years'}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
 
               {(selectedRoles.length > 0 || selectedExperience || searchTerm) && (
