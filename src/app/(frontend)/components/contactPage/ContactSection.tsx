@@ -91,9 +91,9 @@ export default function ContactForm() {
   if (success)
     return (
       <section className="max-w-6xl mx-auto py-12 px-12 md:px-4 flex flex-col items-center">
-        <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+        <div className="bg-green-50 border border-[#deeaaa] rounded-lg p-8 text-center">
           <svg
-            className="w-16 h-16 text-green-500 mx-auto mb-4"
+            className="w-16 h-16 text-[#b4d23d] mx-auto mb-4"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -105,7 +105,7 @@ export default function ContactForm() {
               d="M5 13l4 4L19 7"
             ></path>
           </svg>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Thank You!</h3>
+          <h3 className="text-xl font-semibold text-[#13589e] mb-2">Thank You!</h3>
           <p className="text-gray-600">
             Your message has been received. We{"'"}ll be in touch shortly.
           </p>
