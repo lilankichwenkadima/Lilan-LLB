@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Search, Filter, User, Briefcase, X } from 'lucide-react'
@@ -28,48 +28,8 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
   const [selectedRoles, setSelectedRoles] = useState<string[]>([])
   const [selectedExperience, setSelectedExperience] = useState<string>('')
 
-  // Default attorneys in case none are provided
-  const defaultAttorneys = [
-    {
-      id: 1,
-      name: 'Sarah Johnson',
-      role: 'Managing Partner',
-      bio: 'Sarah specializes in corporate law with over 15 years of experience handling complex business transactions and litigation. She has successfully represented clients in high-stakes negotiations and courtroom proceedings.',
-      photo: { url: '/api/placeholder/150/150' },
-      practice_areas: ['Corporate Law', 'Business Litigation'],
-      experience_years: 15,
-    },
-    {
-      id: 2,
-      name: 'Michael Chen',
-      role: 'Senior Associate',
-      bio: 'Michael focuses on intellectual property law and has helped numerous startups protect their innovations. With a background in computer science, he brings technical expertise to patent and copyright matters.',
-      photo: { url: '/api/placeholder/150/150' },
-      practice_areas: ['Intellectual Property', 'Patent Law'],
-      experience_years: 8,
-    },
-    {
-      id: 3,
-      name: 'Anita Patel',
-      role: 'Partner',
-      bio: 'Anita leads our family law practice with compassion and strategic insight. She is known for her ability to achieve favorable outcomes in complex divorce and custody cases while minimizing conflict.',
-      photo: { url: '/api/placeholder/150/150' },
-      practice_areas: ['Family Law', 'Mediation'],
-      experience_years: 12,
-    },
-    {
-      id: 4,
-      name: 'James Wilson',
-      role: 'Associate',
-      bio: 'James specializes in estate planning and probate law. He helps clients navigate complex inheritance issues and develop comprehensive plans to protect their assets and provide for future generations.',
-      photo: { url: '/api/placeholder/150/150' },
-      practice_areas: ['Estate Planning', 'Probate Law'],
-      experience_years: 5,
-    },
-  ]
-
   // Use provided attorneys or defaults
-  const attorneys = block.attorney_profiles?.length > 0 ? block.attorney_profiles : defaultAttorneys
+  const attorneys = block.attorney_profiles
 
   // Extract all unique roles for filtering
   const allRoles = Array.from(new Set(attorneys.map((attorney) => attorney.role)))
@@ -144,7 +104,7 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
 
   return (
     <section
-      className="py-16 relative overflow-hidden"
+      className="py-32 md:py-32 relative overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${mainColor} 0%, #001F3F 100%)`,
       }}
@@ -195,32 +155,6 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
                     />
                     <label htmlFor={`role-${role}`} className="ml-2 text-sm text-white/90">
                       {role}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-white/90 text-sm font-medium mb-3 flex items-center gap-2">
-                <Briefcase className="h-4 w-4" /> Experience
-              </h4>
-              <div className="space-y-2">
-                {['less-than-5', '5-10', 'more-than-10'].map((exp) => (
-                  <div key={exp} className="flex items-center">
-                    <input
-                      id={`exp-${exp}`}
-                      type="checkbox"
-                      checked={selectedExperience === exp}
-                      onChange={() => handleExperienceChange(exp)}
-                      className="h-4 w-4 rounded border-white/30 bg-white/10 text-blue-600 focus:ring-offset-transparent focus:ring-1 focus:ring-white/50"
-                    />
-                    <label htmlFor={`exp-${exp}`} className="ml-2 text-sm text-white/90">
-                      {exp === 'less-than-5'
-                        ? 'Less than 5 years'
-                        : exp === '5-10'
-                          ? '5-10 years'
-                          : 'More than 10 years'}
                     </label>
                   </div>
                 ))}

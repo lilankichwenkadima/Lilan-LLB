@@ -28,7 +28,7 @@ export default async function PracticeDescription({ params }: { params: Promise<
     <>
       {/* Hero Section with Gradient Background */}
       <div
-        className="relative py-16 md:py-24"
+        className="relative py-24 md:py-32"
         style={{
           background: 'linear-gradient(to bottom, #003566, #001d3d)',
           overflow: 'hidden',

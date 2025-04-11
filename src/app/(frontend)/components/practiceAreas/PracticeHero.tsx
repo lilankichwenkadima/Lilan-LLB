@@ -50,7 +50,7 @@ export default function PracticeHeroSection({ block }: ServicesBlockProps) {
 
   return (
     <section
-      className="relative overflow-hidden py-20 md:py-24"
+      className="relative overflow-hidden py-32 md:py-28"
       style={{
         background: 'linear-gradient(135deg, #003566 0%, #001d3d 100%)',
       }}
