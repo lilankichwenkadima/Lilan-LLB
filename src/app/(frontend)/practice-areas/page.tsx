@@ -1,6 +1,6 @@
 import { getPayload } from 'payload'
 import React from 'react'
-import PracticeHeroSection from '../components/practiceAreas/PracticeHero'
+import PracticeHeroSection from '@/components/practiceAreas/PracticeHero'
 
 import config from '@/payload.config'
 
