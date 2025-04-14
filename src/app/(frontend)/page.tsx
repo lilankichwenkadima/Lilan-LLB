@@ -1,11 +1,11 @@
 import { getPayload } from 'payload'
 import React from 'react'
-import HeroBlock from './components/homepage/HeroBlock'
-import LandingAbout from './components/homepage/LandingAbout'
-import ServicesSection from './components/homepage/Services'
-import TeamSection from './components/homepage/TeamBlock'
-import WhyBlock from './components/homepage/WhyBlock'
-import CTABlock from './components/homepage/CTABlock'
+import HeroBlock from '@/components/homepage/HeroBlock'
+import AboutUsSection from '@/components/homepage/LandingAbout'
+import ServicesCarouselSection from '@/components/homepage/Services'
+import TeamSection from '@/components/homepage/TeamBlock'
+import WhyBlock from '@/components/homepage/WhyBlock'
+import CTABlock from '@/components/homepage/CTABlock'
 
 import config from '@/payload.config'
 import './globals.css'
@@ -40,11 +40,11 @@ function renderBlock(block: any, index: number) {
     case 'hero':
       return <HeroBlock key={index} block={block} />
     case 'home-about':
-      return <LandingAbout key={index} block={block} />
+      return <AboutUsSection key={index} block={block} />
     case 'our-team':
       return <TeamSection key={index} block={block} />
     case 'services-block':
-      return <ServicesSection key={index} block={block} />
+      return <ServicesCarouselSection key={index} block={block} />
     case 'why-choose-us':
       return <WhyBlock key={index} block={block} />
     case 'cta-section':

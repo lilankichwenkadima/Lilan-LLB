@@ -2,10 +2,10 @@ import { getPayload } from 'payload'
 import React from 'react'
 
 import config from '@/payload.config'
-import AboutHero from '../components/aboutpage/AboutHero'
-import GoalsSection from '../components/aboutpage/Goals'
-import TeamSection from '../components/homepage/TeamBlock'
-import ValuesSection from '../components/aboutpage/Values'
+import AboutHero from '@/components/aboutpage/AboutHero'
+import GoalsSection from '@/components/aboutpage/Goals'
+import TeamSection from '@/components/homepage/TeamBlock'
+import ValuesSection from '@/components/aboutpage/Values'
 
 export default async function AboutPage() {
   const payloadConfig = await config

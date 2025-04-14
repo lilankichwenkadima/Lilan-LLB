@@ -15,6 +15,7 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import PracticeAreas from './collections/PracticeAreas'
 import Team from './collections/Team'
+import Publications from './collections/Publications'
 
 // globals
 import { Header } from './globals/Header'
@@ -35,10 +36,10 @@ export default buildConfig({
     },
   },
   cors: '*',
-  collections: [Users, Media, Pages, PracticeAreas, Team],
+  collections: [Users, Media, Publications, Pages, PracticeAreas, Team],
   globals: [Header, Footer],
-  // serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
-  serverURL: 'http://localhost:3000',
+  serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
+  // serverURL: 'http://localhost:3000',
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
