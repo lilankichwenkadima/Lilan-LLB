@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 interface NavItems {
   label: string
@@ -31,6 +32,7 @@ export default function Navbar() {
           { label: 'About', link: '/who-we-are' },
           { label: 'Practice Areas', link: '/practice-areas' },
           { label: 'Attorneys', link: '/our-team' },
+          { label: 'Publications', link: '/publications' },
           { label: 'Contact', link: '/contact-use' },
         ])
       }
@@ -53,33 +55,14 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
       <div
-        className={`${scrolled ? 'bg-[#ffffff] border-b-4 border-[#003566]' : 'bg-transparent'} transition-all duration-300`}
+        className={`${scrolled ? 'bg-[#ffffff] border-b-4 border-[#003566]' : 'bg-white/80'} transition-all duration-300`}
       >
         <div className="max-w-screen-xl px-4 lg:px-8 mx-auto">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <div
-                className={`flex items-center gap-2 transition-all duration-300 ${scrolled ? 'bg-[#ffffff] p-2 rounded' : ''}`}
-              >
-                <div
-                  className={`w-12 h-12 rounded-full ${scrolled ? 'bg-[#003566]' : 'bg-[#003566]/20'}  backdrop-blur-md border border-white/20 flex flex-col items-center justify-center relative`}
-                >
-                  <h1 className="text-white text-sm">CS</h1>
-                  <p className="text-[0.2rem] text-white">Advocates LLP</p>
-                </div>
-                <div className="flex flex-col">
-                  <span
-                    className={`font-serif text-xl font-bold ${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} tracking-wide`}
-                  >
-                    LILAN<span className="text-blue-300">KICHWEN</span>KADIMA
-                  </span>
-                  <span
-                    className={`text-xs ${scrolled ? 'text-[#34373e]/80' : 'text-[#ffffff]/80'} tracking-wider uppercase`}
-                  >
-                    Attorneys & Counselors at Law
-                  </span>
-                </div>
+              <div className={`flex items-center gap-2 transition-all duration-300`}>
+                <Image src="/logo1.png" width={100} height={100} alt="logo image" />
               </div>
             </Link>
 
@@ -89,7 +72,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={nav.link}
-                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} font-medium text-sm`}
+                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#003566]'} font-medium text-sm`}
                 >
                   {nav.label}
                 </Link>

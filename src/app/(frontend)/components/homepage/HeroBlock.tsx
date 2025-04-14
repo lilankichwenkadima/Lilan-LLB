@@ -4,6 +4,7 @@ import { PhoneCall, ChevronRight, Scale, Shield, BookOpen } from 'lucide-react'
 import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { useInView } from 'react-intersection-observer'
+import Image from 'next/image'
 
 interface HeroBlockProps {
   block: {
@@ -46,7 +47,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
 
   // Preload the hero image when the component mounts
   useEffect(() => {
-    const image = new Image()
+    const image = new window.Image()
     image.src = heroImage
     image.onload = () => {
       setIsImageLoaded(true)
@@ -76,12 +77,6 @@ export default function HeroBlock({ block }: HeroBlockProps) {
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/70 z-0" />
 
       {/* Pattern overlay for texture */}
-      <div
-        className="absolute inset-0 z-0 opacity-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
 
       {/* Animated decorative elements */}
       <motion.div
@@ -286,7 +281,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
             className="relative"
           >
             <div className="absolute inset-0 bg-blue-600/30 rounded-full filter blur-xl scale-150" />
-            <div className="w-64 h-64 rounded-full bg-blue-900/40 backdrop-blur-md border border-white/20 flex items-center justify-center relative">
+            <div className="w-64 h-64 rounded-full bg-white/80 backdrop-blur-md border border-blue-900 flex items-center justify-center relative">
               <motion.div
                 animate={{
                   rotateZ: [0, 5, -5, 0],
@@ -298,8 +293,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
                 }}
                 className="absolute inset-0 flex flex-col items-center justify-center"
               >
-                <h1 className="text-white text-8xl font-serif">CS</h1>
-                <p className="text-base text-white tracking-widest">ADVOCATES LLP</p>
+                <Image src="/logo1.png" width={200} height={200} alt="logo image" />
               </motion.div>
             </div>
 
@@ -307,7 +301,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={`orbit-${i}`}
-                className="absolute w-6 h-6 bg-blue-500/40 backdrop-blur-sm rounded-full"
+                className="absolute w-6 h-6 bg-[#003566] backdrop-blur-sm rounded-full"
                 style={{
                   left: '50%',
                   top: '50%',

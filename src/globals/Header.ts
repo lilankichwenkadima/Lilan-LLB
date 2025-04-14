@@ -21,7 +21,7 @@ export const Header: GlobalConfig = {
         },
       ],
       minRows: 1,
-      maxRows: 5,
+      maxRows: 6,
     },
   ],
 }
