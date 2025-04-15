@@ -30,3 +30,20 @@ export async function fetchPaginatedPosts(page = 1, limit = 9) {
     },
   }
 }
+
+export async function fetchRelatedPosts(currentSlug: string) {
+  const payloadConfig = await config
+  const payload = await getPayload({ config: payloadConfig })
+  const { docs: allBlogs } = await payload.find({
+    collection: 'publications',
+    depth: 1,
+    limit: 4,
+    where: {
+      slug: {
+        not_equals: currentSlug,
+      },
+    },
+  })
+
+  return allBlogs
+}
