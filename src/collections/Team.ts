@@ -1,4 +1,6 @@
 import { CollectionConfig } from 'payload'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import slugify from 'slugify'
 
 export const Team: CollectionConfig = {
   slug: 'team',
@@ -14,6 +16,25 @@ export const Team: CollectionConfig = {
       required: true,
     },
     {
+      name: 'slug',
+      label: 'Slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      admin: {
+        position: 'sidebar',
+      },
+      hooks: {
+        beforeValidate: [
+          ({ value, data }) => {
+            if (value) return slugify(value, { lower: true, strict: true })
+            if (data?.name) return slugify(data.name, { lower: true, strict: true })
+            return value
+          },
+        ],
+      },
+    },
+    {
       name: 'photo',
       label: 'Photo',
       type: 'upload',
@@ -26,14 +47,36 @@ export const Team: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    { name: 'bio', type: 'richText', required: true, editor: lexicalEditor() },
     { name: 'email', label: 'Email', type: 'email', required: true },
     { name: 'phone', label: 'Phone', type: 'text', required: true },
-    { name: 'linkedin', label: 'LinkedIn Profile', type: 'text' },
-    { name: 'twitter', label: 'Twitter Profile', type: 'text' },
-    { name: 'facebook', label: 'Facebook Profile', type: 'text' },
-    { name: 'instagram', label: 'Instagram Profile', type: 'text' },
-    { name: 'bio', label: 'Member Bio', type: 'textarea', required: true },
-    { name: 'experience', label: 'Years of Experience', type: 'number', required: true },
+    {
+      name: 'education',
+      label: 'Education',
+      type: 'array',
+      minRows: 1,
+      maxRows: 8,
+      fields: [
+        {
+          name: 'description',
+          label: 'Fill your details here',
+          type: 'text',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'sociallinks',
+      label: 'Social Profiles',
+      type: 'group',
+      fields: [
+        { name: 'linkedin', type: 'text' },
+        { name: 'twitter', type: 'text' },
+        { name: 'facebook', type: 'text' },
+        { name: 'instagram', type: 'text' },
+      ],
+    },
+
     {
       name: 'languages',
       label: 'Languages',

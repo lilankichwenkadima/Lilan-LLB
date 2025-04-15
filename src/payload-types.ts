@@ -321,16 +321,38 @@ export interface PracticeArea {
 export interface Team {
   id: number;
   name: string;
+  slug: string;
   photo: number | Media;
   role: string;
+  bio: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   email: string;
   phone: string;
-  linkedin?: string | null;
-  twitter?: string | null;
-  facebook?: string | null;
-  instagram?: string | null;
-  bio: string;
-  experience: number;
+  education?:
+    | {
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  sociallinks?: {
+    linkedin?: string | null;
+    twitter?: string | null;
+    facebook?: string | null;
+    instagram?: string | null;
+  };
   languages?:
     | {
         title: string;
@@ -792,16 +814,26 @@ export interface PracticeAreasSelect<T extends boolean = true> {
  */
 export interface TeamSelect<T extends boolean = true> {
   name?: T;
+  slug?: T;
   photo?: T;
   role?: T;
+  bio?: T;
   email?: T;
   phone?: T;
-  linkedin?: T;
-  twitter?: T;
-  facebook?: T;
-  instagram?: T;
-  bio?: T;
-  experience?: T;
+  education?:
+    | T
+    | {
+        description?: T;
+        id?: T;
+      };
+  sociallinks?:
+    | T
+    | {
+        linkedin?: T;
+        twitter?: T;
+        facebook?: T;
+        instagram?: T;
+      };
   languages?:
     | T
     | {

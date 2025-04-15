@@ -9,21 +9,26 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 // Import shadcn carousel components
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from '@/components/ui/carousel'
 
-interface TeamBlockProps {
+interface TeamMember {
+  id: number
+  name: string
+  slug: string
+  role: string
+  photo: {
+    url: string
+    alt?: string
+  }
+  practice_areas?: string[]
+  languages?: Array<{ id: string; title: string }>
+}
+
+interface OurTeamProps {
   block: {
-    attorney_profiles: Array<{
-      id: number
-      name: string
-      role: string
-      bio: string
-      photo: {
-        url: string
-      }
-    }>
+    attorney_profiles: TeamMember[]
   }
 }
 
-export default function TeamSection({ block }: TeamBlockProps) {
+export default function TeamSection({ block }: OurTeamProps) {
   const attorneys = block?.attorney_profiles || []
   const [api, setApi] = useState<CarouselApi>()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -143,27 +148,10 @@ export default function TeamSection({ block }: TeamBlockProps) {
                           <p className="text-base font-medium text-white/90 mb-1">
                             {attorney.role}
                           </p>
-
-                          <Link
-                            href={`/our-team/${attorney.id}`}
-                            className="inline-flex md:hidden items-center text-white text-xs font-medium border border-white rounded-3xl p-2 hover:bg-white hover:text-[#003566] transition-colors duration-200"
-                            aria-label={`View profile of ${attorney.name}`}
-                          >
-                            View profile
-                          </Link>
-                        </div>
-
-                        {/* Bio overlay on hover */}
-                        <div className="absolute inset-0 bg-[#003566]/90 hidden md:flex flex-col justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
-                          <div className="text-white">
-                            <h3 className="text-xl font-bold mb-2">{attorney.name}</h3>
-                            <p className="text-sm font-medium text-white/80 mb-4">
-                              {attorney.role}
-                            </p>
-                            <p className="text-white/90 mb-4 line-clamp-4">{attorney.bio}</p>
+                          <div className="mt-4">
                             <Link
                               href={`/our-team/${attorney.id}`}
-                              className="inline-flex items-center text-white font-medium border border-white rounded-3xl p-2 hover:bg-white hover:text-[#003566] transition-colors duration-200"
+                              className="inline-flex items-center text-white text-xs font-medium border border-white rounded-3xl p-2 hover:bg-white hover:text-[#003566] transition-colors duration-200"
                               aria-label={`View profile of ${attorney.name}`}
                             >
                               View profile

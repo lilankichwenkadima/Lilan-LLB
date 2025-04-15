@@ -11,11 +11,11 @@ export async function fetchAllMembers() {
   })
 
   return teamMembers.map((member) => ({
-    id: member.id,
+    slug: member.slug,
   }))
 }
 
-export async function fetchRelatedMembers(currentId: string) {
+export async function fetchRelatedMembers(currentSlug: string) {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
   const { docs: teamMembers } = await payload.find({
@@ -23,8 +23,8 @@ export async function fetchRelatedMembers(currentId: string) {
     depth: 1,
     limit: 3,
     where: {
-      id: {
-        not_equals: currentId,
+      slug: {
+        not_equals: currentSlug,
       },
     },
   })

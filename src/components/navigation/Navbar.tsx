@@ -83,7 +83,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className={`${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'}`}
+                className={`${scrolled ? 'text-[#34373e]' : 'text-[#003566]'}`}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
