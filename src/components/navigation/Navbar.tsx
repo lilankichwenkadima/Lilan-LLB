@@ -55,14 +55,32 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
       <div
-        className={`${scrolled ? 'bg-[#ffffff] border-b-4 border-[#003566]' : 'bg-white/80'} transition-all duration-300`}
+        className={`${scrolled ? 'bg-[#ffffff] border-b-4 border-[#003566]' : 'bg-transparent'} transition-all duration-300`}
       >
         <div className="max-w-screen-xl px-4 lg:px-8 mx-auto">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <div className={`flex items-center gap-2 transition-all duration-300`}>
-                <Image src="/logo1.png" width={100} height={100} alt="logo image" />
+              <div
+                className={`flex items-center gap-2 transition-all duration-300 ${scrolled ? 'bg-[#ffffff] p-2 rounded' : ''}`}
+              >
+                <div
+                  className={`w-12 h-12 rounded-full ${scrolled ? 'bg-[#003566]' : 'bg-[#003566]/20'}  backdrop-blur-md border border-white/20 flex flex-col items-center justify-center relative`}
+                >
+                  <h1 className="text-white text-lg">CS</h1>
+                </div>
+                <div className="flex flex-col">
+                  <span
+                    className={`font-serif text-xl font-bold ${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} tracking-wide`}
+                  >
+                    LILAN | KICHWEN | KADIMA
+                  </span>
+                  <span
+                    className={`text-xs ${scrolled ? 'text-[#34373e]/80' : 'text-[#ffffff]/80'} tracking-wider uppercase`}
+                  >
+                    Advocates LLP
+                  </span>
+                </div>
               </div>
             </Link>
 
@@ -72,7 +90,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={nav.link}
-                  className={`${scrolled ? 'text-[#34373e]' : 'text-[#003566]'} font-medium text-sm`}
+                  className={`${scrolled ? 'text-[#34373e]' : 'text-white'} font-medium text-sm`}
                 >
                   {nav.label}
                 </Link>
@@ -83,7 +101,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className={`${scrolled ? 'text-[#34373e]' : 'text-[#003566]'}`}
+                className={`${scrolled ? 'text-[#34373e]' : 'text-white'}`}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>

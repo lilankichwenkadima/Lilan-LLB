@@ -244,23 +244,21 @@ export default function HeroBlock({ block }: HeroBlockProps) {
                 visible: { opacity: 1, transition: { delay: 0.5, staggerChildren: 0.1 } },
               }}
             >
-              {[
-                '100+ Years Combined Experience',
-                '24/7 Client Support',
-                'Award-Winning Attorneys',
-              ].map((item) => (
-                <motion.div
-                  key={item}
-                  className="flex items-center gap-2"
-                  variants={{
-                    hidden: { opacity: 0, x: -10 },
-                    visible: { opacity: 1, x: 0 },
-                  }}
-                >
-                  <div className="h-1.5 w-1.5 rounded-full bg-blue-400"></div>
-                  <span className="text-sm md:text-base">{item}</span>
-                </motion.div>
-              ))}
+              {['40+ Years Combined Experience', '24/7 Client Support', 'Exceptional Counsel'].map(
+                (item) => (
+                  <motion.div
+                    key={item}
+                    className="flex items-center gap-2"
+                    variants={{
+                      hidden: { opacity: 0, x: -10 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                  >
+                    <div className="h-1.5 w-1.5 rounded-full bg-blue-400"></div>
+                    <span className="text-sm md:text-base">{item}</span>
+                  </motion.div>
+                ),
+              )}
             </motion.div>
           </motion.div>
         </div>

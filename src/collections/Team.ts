@@ -17,7 +17,7 @@ export const Team: CollectionConfig = {
     },
     {
       name: 'slug',
-      label: 'Slug',
+      label: 'Slug (Do not touch)',
       type: 'text',
       required: true,
       unique: true,

@@ -14,6 +14,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import PracticeAreas from './collections/PracticeAreas'
+import Departments from './collections/Departments'
 import Team from './collections/Team'
 import Publications from './collections/Publications'
 
@@ -36,7 +37,7 @@ export default buildConfig({
     },
   },
   cors: '*',
-  collections: [Users, Media, Publications, Pages, PracticeAreas, Team],
+  collections: [Users, Media, Publications, Pages, PracticeAreas, Departments, Team],
   globals: [Header, Footer],
   serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
   // serverURL: 'http://localhost:3000',

@@ -72,6 +72,7 @@ export interface Config {
     publications: Publication;
     pages: Page;
     'practice-areas': PracticeArea;
+    departments: Department;
     team: Team;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -86,6 +87,7 @@ export interface Config {
     publications: PublicationsSelect<false> | PublicationsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     'practice-areas': PracticeAreasSelect<false> | PracticeAreasSelect<true>;
+    departments: DepartmentsSelect<false> | DepartmentsSelect<true>;
     team: TeamSelect<false> | TeamSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -277,18 +279,6 @@ export interface Page {
             blockType: 'goals';
           }
         | {
-            our_values?:
-              | {
-                  title: string;
-                  description: string;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'core-values';
-          }
-        | {
             practiceAreas?: (number | PracticeArea)[] | null;
             id?: string | null;
             blockName?: string | null;
@@ -308,6 +298,36 @@ export interface Page {
 export interface PracticeArea {
   id: number;
   title: string;
+  slug: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  department: number | Department;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Add Department
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "departments".
+ */
+export interface Department {
+  id: number;
+  title: string;
+  slug: string;
   description: string;
   updatedAt: string;
   createdAt: string;
@@ -586,6 +606,10 @@ export interface PayloadLockedDocument {
         value: number | PracticeArea;
       } | null)
     | ({
+        relationTo: 'departments';
+        value: number | Department;
+      } | null)
+    | ({
         relationTo: 'team';
         value: number | Team;
       } | null)
@@ -774,19 +798,6 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        'core-values'?:
-          | T
-          | {
-              our_values?:
-                | T
-                | {
-                    title?: T;
-                    description?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
         'practice-areas-block'?:
           | T
           | {
@@ -804,6 +815,19 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface PracticeAreasSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
+  description?: T;
+  department?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "departments_select".
+ */
+export interface DepartmentsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
   description?: T;
   updatedAt?: T;
   createdAt?: T;

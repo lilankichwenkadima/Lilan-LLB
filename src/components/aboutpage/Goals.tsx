@@ -21,16 +21,6 @@ export default function GoalsSection({ block }: GoalsBlockProps) {
   return (
     <section className="py-16" style={{ backgroundColor: '#f8fafc' }}>
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3" style={{ color: mainColor }}>
-            Our Purpose
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Guiding principles that shape our approach to legal practice and client service
-          </p>
-          <div className="w-20 h-1 mx-auto mt-4" style={{ backgroundColor: mainColor }}></div>
-        </div>
-
         <div className="grid md:grid-cols-2 gap-8">
           {/* Mission Card */}
           <div
@@ -48,21 +38,6 @@ export default function GoalsSection({ block }: GoalsBlockProps) {
               </div>
 
               <p className="text-gray-700 leading-relaxed mb-6">{mission}</p>
-
-              <div className="flex flex-wrap gap-3 mt-6">
-                <span
-                  className="inline-block px-3 py-1 text-sm rounded-full text-white"
-                  style={{ backgroundColor: mainColor }}
-                >
-                  Client-Focused
-                </span>
-                <span className="inline-block px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-700">
-                  Ethical Practice
-                </span>
-                <span className="inline-block px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-700">
-                  Excellence
-                </span>
-              </div>
             </div>
           </div>
 
@@ -82,21 +57,6 @@ export default function GoalsSection({ block }: GoalsBlockProps) {
               </div>
 
               <p className="text-gray-700 leading-relaxed mb-6">{vision}</p>
-
-              <div className="flex flex-wrap gap-3 mt-6">
-                <span
-                  className="inline-block px-3 py-1 text-sm rounded-full text-white"
-                  style={{ backgroundColor: mainColor }}
-                >
-                  Leadership
-                </span>
-                <span className="inline-block px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-700">
-                  Innovation
-                </span>
-                <span className="inline-block px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-700">
-                  Trust
-                </span>
-              </div>
             </div>
           </div>
         </div>

@@ -11,20 +11,37 @@ export async function fetchAllPracticeAreas() {
   })
 
   return practiceAreas.map((area) => ({
-    id: area.id,
+    slug: area.slug,
   }))
 }
 
-export async function fetchRelatedPracticeAreas(currentId: string) {
+export async function fetchDepartments() {
+  const payloadConfig = await config
+  const payload = await getPayload({ config: payloadConfig })
+  const { docs: departments } = await payload.find({
+    collection: 'departments',
+    depth: 2,
+    limit: 1000,
+  })
+
+  return departments.map((dep) => ({
+    id: dep.id,
+    slug: dep.slug,
+    title: dep.title,
+    description: dep.description,
+  }))
+}
+
+export async function fetchRelatedPracticeAreas(currentSlug: string) {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
   const { docs: practiceAreas } = await payload.find({
     collection: 'practice-areas',
     depth: 1,
-    limit: 3,
+    limit: 30,
     where: {
-      id: {
-        not_equals: currentId,
+      slug: {
+        not_equals: currentSlug,
       },
     },
   })

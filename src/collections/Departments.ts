@@ -1,12 +1,11 @@
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { CollectionConfig } from 'payload'
 import slugify from 'slugify'
 
-export const PracticeAreas: CollectionConfig = {
-  slug: 'practice-areas',
+export const Departments: CollectionConfig = {
+  slug: 'departments',
   admin: {
     useAsTitle: 'title',
-    description: 'Add Practice Area',
+    description: 'Add Department',
     group: 'Practice Areas',
   },
   fields: [
@@ -35,15 +34,8 @@ export const PracticeAreas: CollectionConfig = {
         ],
       },
     },
-    { name: 'description', type: 'richText', editor: lexicalEditor(), required: true },
-    {
-      name: 'department',
-      type: 'relationship',
-      relationTo: 'departments',
-      required: true,
-      hasMany: false,
-    },
+    { name: 'description', label: 'Department Description', type: 'textarea', required: true },
   ],
 }
 
-export default PracticeAreas
+export default Departments

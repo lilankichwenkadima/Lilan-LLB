@@ -5,7 +5,7 @@ import { WhyChooseUs } from '@/blocks/homepage/why-us/schema'
 import { OurTeam } from '@/blocks/homepage/our-team/schema'
 import { CTA } from '@/blocks/homepage/cta/schema'
 import type { CollectionConfig } from 'payload'
-import { About, Goals, Values } from '@/blocks/about/schema'
+import { About, Goals } from '@/blocks/about/schema'
 import { PracticeAreasBlock } from '@/blocks/practiceareas/schema'
 
 export const Pages: CollectionConfig = {
@@ -39,7 +39,6 @@ export const Pages: CollectionConfig = {
         CTA,
         About,
         Goals,
-        Values,
         PracticeAreasBlock,
       ],
     },
