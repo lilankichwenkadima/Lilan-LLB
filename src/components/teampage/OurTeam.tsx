@@ -77,7 +77,7 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
 
   return (
     <section
-      className="py-16 md:py-24 lg:py-32 relative overflow-hidden"
+      className="py-32 md:py-24 lg:py-32 relative overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${mainColor} 0%, #001F3F 100%)`,
       }}
