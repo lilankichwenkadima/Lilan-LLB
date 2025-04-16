@@ -95,7 +95,12 @@ export default function Footer() {
                 Nairobi, Kenya
               </p>
             </div>
-
+            <div className="flex items-start gap-3">
+              <MapPin size={18} className="text-[#74b1dd] flex-shrink-0 mt-1" />
+              <p className="text-white/70 text-sm">
+                Along Eldoret-Nakuru Highway <br /> Between Shell Petrol Station and Sunkraft.
+              </p>
+            </div>
             <div className="flex items-center gap-3">
               <Mail size={18} className="text-[#74b1dd] flex-shrink-0" />
               <a
@@ -105,7 +110,6 @@ export default function Footer() {
                 info@lilankichwenkadima.com
               </a>
             </div>
-
             <div className="flex items-center gap-3">
               <Phone size={18} className="text-[#74b1dd] flex-shrink-0" />
               <a
