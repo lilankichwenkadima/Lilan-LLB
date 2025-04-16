@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// ContactForm.tsx - The form component
 'use client'
-import { LoaderCircle, Mail, Phone, User } from 'lucide-react'
+import { LoaderCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import FormField from './FormField'
 
 export default function ContactForm() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [formData, setFormData] = useState<any>(null)
   const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -21,9 +23,7 @@ export default function ContactForm() {
     let isValid = true
 
     Array.from(elements)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .filter((el: any) => el.name && el.required)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .forEach((el: any) => {
         if (!el.value.trim()) {
           newErrors[el.name] = `${el.name} is required`
@@ -47,9 +47,7 @@ export default function ContactForm() {
     const payload = {
       form: formData.id,
       submissionData: Array.from(formEl.elements)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .filter((el: any) => el.name)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .map((el: any) => ({ field: el.name, value: el.value })),
     }
 
@@ -75,176 +73,33 @@ export default function ContactForm() {
     }
   }
 
-  if (!formData)
-    return (
-      <section className="max-w-6xl mx-auto py-12 px-12 md:px-4 flex flex-col items-center">
-        <div className="bg-[#003566] border border-green-200 rounded-2xl p-6 sm:p-8 text-center flex flex-col items-center space-y-4 shadow-md max-w-md mx-auto">
-          <LoaderCircle className="w-10 h-10 text-white animate-spin" />
-          <h3 className="text-lg sm:text-xl font-semibold text-white">Please Wait!</h3>
-          <p className="text-gray-50 text-sm sm:text-base">
-            We{"'"}re loading the contact form for you.
-          </p>
-        </div>
-      </section>
-    )
+  if (!formData) {
+    return <LoadingState />
+  }
 
-  if (success)
-    return (
-      <section className="max-w-6xl mx-auto py-12 px-12 md:px-4 flex flex-col items-center">
-        <div className="bg-green-50 border border-[#deeaaa] rounded-lg p-8 text-center">
-          <svg
-            className="w-16 h-16 text-[#b4d23d] mx-auto mb-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 13l4 4L19 7"
-            ></path>
-          </svg>
-          <h3 className="text-xl font-semibold text-[#13589e] mb-2">Thank You!</h3>
-          <p className="text-gray-600">
-            Your message has been received. We{"'"}ll be in touch shortly.
-          </p>
-        </div>
-      </section>
-    )
+  if (success) {
+    return <SuccessState />
+  }
 
   return (
-    <section className="max-w-6xl mx-auto py-12 px-12 md:px-4 flex flex-col items-center">
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-[#003566] text-center">Contact Us</h2>
-        <p className="text-gray-600 mt-2">We{"'"}re here to help with your legal needs</p>
-      </div>
+    <div>
+      <h3 className="text-xl font-semibold text-[#003566] mb-6">Send Us a Message</h3>
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {formData.fields.map((field: any) => (
+          <FormField key={field.id} field={field} error={errors[field.name]} />
+        ))}
 
-      <form
-        onSubmit={handleSubmit}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {formData.fields.map(
-          (field: {
-            id: string
-            blockType: string
-            label: string
-            name: string
-            required: boolean
-          }) => {
-            const fieldId = `field-${field.id}`
-
-            switch (field.blockType) {
-              case 'text':
-                return (
-                  <div key={field.id} className="relative">
-                    <label
-                      htmlFor={fieldId}
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      {field.label} {field.required && <span className="text-red-500">*</span>}
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <User size={18} className="text-gray-400" />
-                      </div>
-                      <input
-                        id={fieldId}
-                        name={field.name}
-                        type="text"
-                        required={field.required}
-                        className="block w-full pl-10 px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#003566] focus:border-transparent transition duration-150"
-                      />
-                    </div>
-                    {errors[field.name] && (
-                      <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
-                    )}
-                  </div>
-                )
-              case 'email':
-                return (
-                  <div key={field.id} className="relative">
-                    <label
-                      htmlFor={fieldId}
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      {field.label} {field.required && <span className="text-red-500">*</span>}
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Mail size={18} className="text-gray-400" />
-                      </div>
-                      <input
-                        id={fieldId}
-                        name={field.name}
-                        type="email"
-                        required={field.required}
-                        className="block w-full pl-10 px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#003566] focus:border-transparent transition duration-150"
-                      />
-                    </div>
-                    {errors[field.name] && (
-                      <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
-                    )}
-                  </div>
-                )
-              case 'textarea':
-                return (
-                  <div key={field.id} className="relative lg:col-span-3 md:col-span-2">
-                    <label
-                      htmlFor={fieldId}
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      {field.label} {field.required && <span className="text-red-500">*</span>}
-                    </label>
-                    <textarea
-                      id={fieldId}
-                      name={field.name}
-                      required={field.required}
-                      rows={5}
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#003566] focus:border-transparent transition duration-150"
-                    />
-                    {errors[field.name] && (
-                      <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
-                    )}
-                  </div>
-                )
-              case 'number':
-                return (
-                  <div key={field.id} className="relative">
-                    <label
-                      htmlFor={fieldId}
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      {field.label} {field.required && <span className="text-red-500">*</span>}
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Phone size={18} className="text-gray-400" />
-                      </div>
-                      <input
-                        id={fieldId}
-                        name={field.name}
-                        type="tel"
-                        required={field.required}
-                        className="block w-full pl-10 px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#003566] focus:border-transparent transition duration-150"
-                      />
-                    </div>
-                    {errors[field.name] && (
-                      <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
-                    )}
-                  </div>
-                )
-              default:
-                return null
-            }
-          },
+        {errors.form && (
+          <div className="md:col-span-2">
+            <p className="text-sm text-red-600">{errors.form}</p>
+          </div>
         )}
 
-        <div className="lg:col-span-3 md:col-span-2 mt-6">
+        <div className="md:col-span-2 mt-6">
           <button
             type="submit"
             disabled={submitting}
-            className="px-8 py-3 bg-[#003566] hover:bg-[#00264d] text-white font-medium rounded-md shadow-sm transition duration-150 flex items-center justify-center"
+            className="px-8 py-3 bg-[#003566] hover:bg-[#00264d] text-white font-medium rounded-md shadow-sm transition duration-150 flex items-center justify-center w-full"
           >
             {submitting ? (
               <>
@@ -271,15 +126,49 @@ export default function ContactForm() {
                 Processing...
               </>
             ) : (
-              'Submit Inquiry'
+              'Submit'
             )}
           </button>
 
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="text-sm text-gray-500 mt-4 text-center">
             Your information is kept confidential and secure
           </p>
         </div>
       </form>
-    </section>
+    </div>
+  )
+}
+
+function LoadingState() {
+  return (
+    <div className="bg-[#003566] border border-green-200 rounded-2xl p-6 text-center flex flex-col items-center space-y-4 shadow-md">
+      <LoaderCircle className="w-10 h-10 text-white animate-spin" />
+      <h3 className="text-xl font-semibold text-white">Please Wait!</h3>
+      <p className="text-gray-50">We{"'"}re loading the contact form for you.</p>
+    </div>
+  )
+}
+
+function SuccessState() {
+  return (
+    <div className="bg-green-50 border border-[#deeaaa] rounded-lg p-8 text-center">
+      <svg
+        className="w-16 h-16 text-[#b4d23d] mx-auto mb-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M5 13l4 4L19 7"
+        ></path>
+      </svg>
+      <h3 className="text-xl font-semibold text-[#13589e] mb-2">Thank You!</h3>
+      <p className="text-gray-600">
+        Your message has been received. We{"'"}ll be in touch shortly.
+      </p>
+    </div>
   )
 }

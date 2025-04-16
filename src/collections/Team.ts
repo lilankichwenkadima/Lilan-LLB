@@ -54,6 +54,7 @@ export const Team: CollectionConfig = {
       name: 'education',
       label: 'Education',
       type: 'array',
+      hidden: true,
       minRows: 1,
       maxRows: 8,
       fields: [

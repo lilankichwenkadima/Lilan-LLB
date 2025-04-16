@@ -150,7 +150,7 @@ export default function TeamSection({ block }: OurTeamProps) {
                           </p>
                           <div className="mt-4">
                             <Link
-                              href={`/our-team/${attorney.id}`}
+                              href={`/our-team/${attorney.slug}`}
                               className="inline-flex items-center text-white text-xs font-medium border border-white rounded-3xl p-2 hover:bg-white hover:text-[#003566] transition-colors duration-200"
                               aria-label={`View profile of ${attorney.name}`}
                             >

@@ -1,12 +1,12 @@
 import React from 'react'
-import ContactForm from '@/components/contactPage/ContactSection'
+import ContactPage from '@/components/contactPage/ContactPage'
 import ContactHero from '@/components/contactPage/ContactHero'
 
 export default function page() {
   return (
     <>
       <ContactHero />
-      <ContactForm />
+      <ContactPage />
     </>
   )
 }

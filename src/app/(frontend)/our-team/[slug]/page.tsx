@@ -40,9 +40,9 @@ export default async function TeamDescription({ params }: { params: Promise<{ sl
   const relatedMembers = await fetchRelatedMembers(slug)
 
   return (
-    <section className="relative overflow-hidden pt-12 flex justify-center items-center">
+    <section className="relative overflow-hidden pt-16 flex justify-center items-center bg-gradient-to-b from-[#003566] via-white to-white">
       {' '}
-      <div className="bg-white min-h-screen">
+      <div className="min-h-screen">
         {/* Back Navigation */}
         <div className="container mx-auto py-8 px-4">
           <Link

@@ -11,8 +11,6 @@ interface ServicesBlockProps {
     practiceAreas: {
       id: number
       title: string
-      description: string
-      icon?: string
     }[]
   }
 }
@@ -97,108 +95,6 @@ export default function ServicesCarouselSection({ block }: ServicesBlockProps) {
     return practiceAreas.slice(startIndex, startIndex + itemsPerPage)
   }
 
-  // Function to get icon component based on name
-  const getIconComponent = (iconName: string = 'circle') => {
-    const icons: { [key: string]: JSX.Element } = {
-      briefcase: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-        </svg>
-      ),
-      scale: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M8 3 4 7l4 4" />
-          <path d="M12 21H4a2 2 0 0 1-2-2V7l4-4" />
-          <path d="M16 3l4 4-4 4" />
-          <path d="M12 21h8a2 2 0 0 0 2-2V7l-4-4" />
-        </svg>
-      ),
-      home: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-          <polyline points="9 22 9 12 15 12 15 22" />
-        </svg>
-      ),
-      lightbulb: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M15 14c.2-1 .7-1.8 1.5-2.5A5 5 0 0 0 14 6.5a5 5 0 0 0-7 4.9 5 5 0 0 0 1.7 3.8c.9.6 1.3 1.4 1.3 2.3v.5h4v-.5c0-1 .4-1.8 1-2.5Z" />
-          <path d="M10 20.4A1.4 1.4 0 0 0 11.4 19h1.2a1.4 1.4 0 0 0 1.4 1.4h0a1.4 1.4 0 0 0 1.4-1.4v-.4h-6v.4a1.4 1.4 0 0 0 1.4 1.4Z" />
-        </svg>
-      ),
-      'file-text': (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-          <polyline points="14 2 14 8 20 8" />
-          <line x1="16" y1="13" x2="8" y2="13" />
-          <line x1="16" y1="17" x2="8" y2="17" />
-          <line x1="10" y1="9" x2="8" y2="9" />
-        </svg>
-      ),
-      circle: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-        </svg>
-      ),
-    }
-
-    return icons[iconName] || icons.circle
-  }
-
   return (
     <section ref={ref} className="py-24 bg-[#003566] text-white relative overflow-hidden">
       {/* Abstract decorative elements - lighter version for dark bg */}
@@ -254,14 +150,10 @@ export default function ServicesCarouselSection({ block }: ServicesBlockProps) {
                     key={service.id}
                     className="bg-white/5 backdrop-blur-lg rounded-lg p-8 flex flex-col transition-all border border-white/10 hover:border-white/20 hover:bg-white/10"
                   >
-                    <div className="rounded-full bg-white/10 w-12 h-12 flex items-center justify-center mb-6 text-white">
-                      {getIconComponent(service.icon)}
-                    </div>
                     <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                    <p className="text-white/80 mb-6 flex-grow">{service.description}</p>
                     <Link
                       href={`/practice-areas/${service.id}`}
-                      className="inline-flex items-center text-white font-medium hover:underline mt-auto"
+                      className="inline-flex text-sm items-center text-white font-medium hover:underline mt-auto"
                     >
                       Learn more
                       <svg

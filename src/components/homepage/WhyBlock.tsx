@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils'
 
 interface WhyBlockProps {
   block: {
-    name: string
+    heading: string
     description: string
     listings: Array<{
       id: number
@@ -49,7 +49,7 @@ export default function WhyBlock({ block }: WhyBlockProps) {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-[#003566] mb-6 tracking-tight">
-              {block.name}
+              {block.heading}
             </h2>
             <div className="w-24 h-1 bg-[#003566] mx-auto mb-8"></div>
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed">{block.description}</p>

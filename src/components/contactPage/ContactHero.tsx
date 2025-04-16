@@ -11,7 +11,7 @@ export default function ContactHero() {
 
       <div className="container mx-auto px-6 py-12 md:py-16 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">Let{"'"}s Get In Touch</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">Contact Us</h1>
           <p className="text-blue-100 text-base md:text-lg max-w-2xl mx-auto">
             Our team of experienced attorneys is ready to provide you with the legal expertise and
             personalized service you deserve. Reach out to us today.

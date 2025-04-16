@@ -17,6 +17,7 @@ import PracticeAreas from './collections/PracticeAreas'
 import Departments from './collections/Departments'
 import Team from './collections/Team'
 import Publications from './collections/Publications'
+import Newsletter from './collections/Newsletter'
 
 // globals
 import { Header } from './globals/Header'
@@ -37,10 +38,10 @@ export default buildConfig({
     },
   },
   cors: '*',
-  collections: [Users, Media, Publications, Pages, PracticeAreas, Departments, Team],
+  collections: [Users, Media, Newsletter, Publications, Pages, PracticeAreas, Departments, Team],
   globals: [Header, Footer],
-  serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
-  // serverURL: 'http://localhost:3000',
+  // serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
+  serverURL: 'http://localhost:3000',
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
