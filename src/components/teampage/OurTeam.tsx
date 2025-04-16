@@ -171,7 +171,7 @@ export default function OurTeam({ block }: OurTeamBlockProps) {
                     fill
                     src={attorney.photo?.url}
                     alt={attorney.name}
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="group-hover:scale-105 transition-transform duration-500 object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 </div>

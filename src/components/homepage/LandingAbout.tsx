@@ -109,8 +109,8 @@ export default function AboutUsSection({ block }: AboutUsBlockProps) {
           {/* Stats section */}
           <motion.div variants={fadeInUp} className="grid grid-cols-3 gap-8 my-16">
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#003566] mb-2">25+</div>
-              <div className="text-gray-600">Years of Experience</div>
+              <div className="text-4xl font-bold text-[#003566] mb-2">40+</div>
+              <div className="text-gray-600">Combined Years of Experience</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-[#003566] mb-2">500+</div>

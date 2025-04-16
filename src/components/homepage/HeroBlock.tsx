@@ -117,30 +117,6 @@ export default function HeroBlock({ block }: HeroBlockProps) {
               visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
             }}
           >
-            {/* Practice area pills above heading */}
-            <motion.div
-              className="flex flex-wrap gap-2 mb-6"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-              }}
-            >
-              {['Personal Injury', 'Corporate Law', 'Family Law', 'Criminal Defense'].map(
-                (area, index) => (
-                  <motion.span
-                    key={area}
-                    className="px-3 py-1 text-xs font-medium bg-blue-600/20 text-blue-200 rounded-full border border-blue-400/30"
-                    variants={{
-                      hidden: { opacity: 0, x: -10 },
-                      visible: { opacity: 1, x: 0, transition: { delay: index * 0.1 } },
-                    }}
-                  >
-                    {area}
-                  </motion.span>
-                ),
-              )}
-            </motion.div>
-
             {/* Accent line above heading */}
             <motion.div
               className="w-16 h-1 bg-blue-600 mb-6"
@@ -151,7 +127,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
             />
 
             <motion.h1
-              className="font-serif text-4xl sm:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-white leading-tight"
+              className="font-serif text-4xl md:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-white leading-tight"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },

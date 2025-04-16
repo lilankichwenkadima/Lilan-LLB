@@ -47,7 +47,7 @@ export default async function TeamDescription({ params }: { params: Promise<{ sl
         <div className="container mx-auto py-8 px-4">
           <Link
             href="/our-team"
-            className="inline-flex items-center text-[#003566] hover:underline mb-8 font-medium"
+            className="inline-flex items-center text-[#ffffff] hover:underline mb-8 font-medium"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Our Team

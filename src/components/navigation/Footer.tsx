@@ -1,5 +1,4 @@
 'use client'
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import {
   Facebook,
@@ -12,29 +11,13 @@ import {
   ChevronRight,
 } from 'lucide-react'
 
-interface NavItems {
-  id: string
-  label: string
-  link: string
-}
-
 export default function Footer() {
-  const [navItems, setNavItems] = useState<NavItems[]>([])
-
-  useEffect(() => {
-    const fetchNavItems = async () => {
-      try {
-        const res = await fetch('/api/footer')
-        const data = await res.json()
-        setNavItems(data.nav)
-      } catch (error) {
-        console.error('Failed to fetch navigation data', error)
-        // Fallback navigation items
-      }
-    }
-
-    fetchNavItems()
-  }, [])
+  const navItems = [
+    { label: 'Home', link: '/' },
+    { label: 'About', link: '/who-we-are' },
+    { label: 'Insights', link: '/publications' },
+    { label: 'Contact', link: '/contact-us' },
+  ]
 
   return (
     <footer className="bg-[#00274d] py-16 px-8 md:px-12 lg:px-16">
@@ -82,8 +65,8 @@ export default function Footer() {
           <h3 className="font-serif text-white text-lg">Quick Links</h3>
 
           <ul className="space-y-4">
-            {navItems.map((nav) => (
-              <li key={nav.id}>
+            {navItems.map((nav, index) => (
+              <li key={index}>
                 <Link
                   href={nav.link}
                   className="text-white/70 hover:text-[#74b1dd] transition-colors text-sm flex items-center group"
@@ -107,7 +90,7 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <MapPin size={18} className="text-[#74b1dd] flex-shrink-0 mt-1" />
               <p className="text-white/70 text-sm">
-                123 Legal Avenue, Suite 500
+                Madonna House, 3rd Floor, A312
                 <br />
                 Nairobi, Kenya
               </p>
@@ -119,17 +102,18 @@ export default function Footer() {
                 href="mailto:info@lkkadvocates.com"
                 className="text-white/70 hover:text-white text-sm transition-colors"
               >
-                info@lkkadvocates.com
+                info@lilankichwenkadima.com
               </a>
             </div>
 
             <div className="flex items-center gap-3">
               <Phone size={18} className="text-[#74b1dd] flex-shrink-0" />
               <a
-                href="tel:+254715337850"
+                href="tel: +254 790 039 031
+"
                 className="text-white/70 hover:text-white text-sm transition-colors"
               >
-                +254 715 337850
+                +254 790 039 031
               </a>
             </div>
           </div>

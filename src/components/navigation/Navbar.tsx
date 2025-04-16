@@ -1,45 +1,37 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
-import Image from 'next/image'
-
-interface NavItems {
-  label: string
-  link: string
-}
+import { Menu, X, ChevronDown } from 'lucide-react'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [navItems, setNavItems] = useState<NavItems[]>([])
   const [scrolled, setScrolled] = useState(false)
+  const [teamDropdownOpen, setTeamDropdownOpen] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const toggleTeamDropdown = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setTeamDropdownOpen(!teamDropdownOpen)
+  }
+
+  const navItems = [
+    { label: 'Home', link: '/' },
+    {
+      label: 'Who We Are',
+      link: '/who-we-are',
+      hasDropdown: true,
+      dropdownItems: [{ label: 'Our Team', link: '/our-team' }],
+    },
+    { label: 'Practice Areas', link: '/practice-areas' },
+    { label: 'Publications', link: '/publications' },
+    { label: 'Office Details', link: '/office-details' },
+    { label: 'Contact Us', link: '/contact-us' },
+  ]
+
   useEffect(() => {
-    const fetchNavItems = async () => {
-      try {
-        const res = await fetch('/api/header')
-        const data = await res.json()
-        setNavItems(data.nav)
-      } catch (error) {
-        console.error('Failed to fetch navigation data', error)
-        // Fallback navigation items
-        setNavItems([
-          { label: 'Home', link: '/' },
-          { label: 'About', link: '/who-we-are' },
-          { label: 'Practice Areas', link: '/practice-areas' },
-          { label: 'Attorneys', link: '/our-team' },
-          { label: 'Publications', link: '/publications' },
-          { label: 'Contact', link: '/contact-use' },
-        ])
-      }
-    }
-
-    fetchNavItems()
-
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setScrolled(true)
@@ -86,14 +78,49 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
-              {navItems.map((nav, index) => (
-                <Link
-                  key={index}
-                  href={nav.link}
-                  className={`${scrolled ? 'text-[#34373e]' : 'text-white'} font-medium text-sm`}
-                >
-                  {nav.label}
-                </Link>
+              {navItems.map((item, index) => (
+                <div key={index} className="relative group">
+                  {item.hasDropdown ? (
+                    <div className="flex items-center">
+                      <Link
+                        href={item.link}
+                        className={`${scrolled ? 'text-[#34373e]' : 'text-white'} font-medium text-sm hover:text-[#b5d7f7]`}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        onClick={(e) => e.stopPropagation()}
+                        className="focus:outline-none ml-1"
+                        aria-label="Toggle dropdown"
+                      >
+                        <ChevronDown
+                          size={16}
+                          className={`${scrolled ? 'text-[#34373e]' : 'text-white'} group-hover:text-[#b5d7f7]`}
+                        />
+                      </button>
+
+                      {/* Dropdown Menu */}
+                      <div className="absolute top-6 left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+                          <Link
+                            key={dropdownIndex}
+                            href={dropdownItem.link}
+                            className="block px-4 py-2 text-sm text-[#34373e] hover:bg-gray-100 hover:text-[#003566]"
+                          >
+                            {dropdownItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.link}
+                      className={`${scrolled ? 'text-[#34373e]' : 'text-white'} font-medium text-sm hover:text-[#b5d7f7]`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
 
@@ -102,6 +129,7 @@ export default function Navbar() {
               <button
                 onClick={toggleMenu}
                 className={`${scrolled ? 'text-[#34373e]' : 'text-white'}`}
+                aria-label="Toggle mobile menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -114,15 +142,55 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-[#ffffff] py-4 px-6 shadow-lg">
           <div className="flex flex-col space-y-4">
-            {navItems.map((nav, index) => (
-              <Link
-                key={index}
-                href={nav.link}
-                className="text-[#34373e] hover:text-[#003566] font-medium transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {nav.label}
-              </Link>
+            {navItems.map((item, index) => (
+              <div key={index}>
+                {item.hasDropdown ? (
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <Link
+                        href={item.link}
+                        className="text-[#34373e] hover:text-[#003566] font-medium transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        onClick={toggleTeamDropdown}
+                        className="text-[#34373e] focus:outline-none p-1"
+                        aria-label="Toggle team dropdown"
+                      >
+                        <ChevronDown
+                          size={16}
+                          className={`transform ${teamDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-transform duration-200`}
+                        />
+                      </button>
+                    </div>
+
+                    {teamDropdownOpen && (
+                      <div className="pl-4 mt-2 space-y-2">
+                        {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+                          <Link
+                            key={dropdownIndex}
+                            href={dropdownItem.link}
+                            className="block text-[#34373e] hover:text-[#003566] font-medium transition-colors duration-200"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {dropdownItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href={item.link}
+                    className="text-[#34373e] hover:text-[#003566] font-medium transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
         </div>

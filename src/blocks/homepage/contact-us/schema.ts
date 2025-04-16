@@ -2,6 +2,8 @@ import { Block } from 'payload'
 
 export const Contact: Block = {
   slug: 'contact', // Unique identifier for the block
+  admin: { group: 'Home Page' },
+
   fields: [
     {
       name: 'heading',
@@ -16,7 +18,7 @@ export const Contact: Block = {
       required: true,
     },
     {
-      name: 'phone_number',
+      name: 'telephone',
       label: 'Phone Number',
       type: 'number',
       required: true,

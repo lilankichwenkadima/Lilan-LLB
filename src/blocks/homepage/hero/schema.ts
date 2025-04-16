@@ -2,6 +2,7 @@ import { Block } from 'payload'
 
 export const Hero: Block = {
   slug: 'hero',
+  admin: { group: 'Home Page' },
   fields: [
     { name: 'heading', label: 'Heading', type: 'text', required: true },
     {

@@ -7,6 +7,7 @@ import { CTA } from '@/blocks/homepage/cta/schema'
 import type { CollectionConfig } from 'payload'
 import { About, Goals } from '@/blocks/about/schema'
 import { PracticeAreasBlock } from '@/blocks/practiceareas/schema'
+import { OfficeDetails } from '@/blocks/office/schema'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -40,6 +41,7 @@ export const Pages: CollectionConfig = {
         About,
         Goals,
         PracticeAreasBlock,
+        OfficeDetails,
       ],
     },
   ],

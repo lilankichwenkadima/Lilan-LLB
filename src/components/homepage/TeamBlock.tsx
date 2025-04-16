@@ -119,7 +119,7 @@ export default function TeamSection({ block }: OurTeamProps) {
                             src={attorney.photo.url}
                             alt={attorney.name}
                             fill
-                            className="object-cover"
+                            className="object-cover object-top"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">

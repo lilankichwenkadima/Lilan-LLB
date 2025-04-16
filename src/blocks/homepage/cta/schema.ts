@@ -2,6 +2,7 @@ import { Block } from 'payload'
 
 export const CTA: Block = {
   slug: 'cta-section', // Unique identifier for the block
+  admin: { group: 'Home Page' },
   fields: [
     {
       name: 'title',

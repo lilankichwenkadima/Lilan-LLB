@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Building2, Users, Scale, Briefcase, CheckCircle } from 'lucide-react'
+import { Building2, Users, Scale, Briefcase, CheckCircle, Shield } from 'lucide-react'
 import Image from 'next/image'
 
 interface AboutHeroBlockProps {
@@ -67,27 +67,28 @@ export default function AboutHero({ block }: AboutHeroBlockProps) {
                     className="p-3 rounded-full mb-2"
                     style={{ backgroundColor: lightMainColor }}
                   >
+                    <CheckCircle size={24} style={{ color: mainColor }} />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Precision</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <div
+                    className="p-3 rounded-full mb-2"
+                    style={{ backgroundColor: lightMainColor }}
+                  >
                     <Scale size={24} style={{ color: mainColor }} />
                   </div>
                   <span className="text-sm font-medium text-gray-700">Integrity</span>
                 </div>
+
                 <div className="flex flex-col items-center text-center">
                   <div
                     className="p-3 rounded-full mb-2"
                     style={{ backgroundColor: lightMainColor }}
                   >
-                    <CheckCircle size={24} style={{ color: mainColor }} />
+                    <Shield size={24} style={{ color: mainColor }} />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Excellence</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <div
-                    className="p-3 rounded-full mb-2"
-                    style={{ backgroundColor: lightMainColor }}
-                  >
-                    <Users size={24} style={{ color: mainColor }} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-700">Compassion</span>
+                  <span className="text-sm font-medium text-gray-700">Fortitude</span>
                 </div>
               </div>
             </div>
@@ -109,19 +110,18 @@ export default function AboutHero({ block }: AboutHeroBlockProps) {
                   <Building2 size={24} style={{ color: mainColor }} />
                 </div>
                 <h3 className="text-xl font-semibold" style={{ color: mainColor }}>
-                  LilanKichwenKadima
+                  Lilan | Kichwen | Kadima
                 </h3>
               </div>
             </div>
 
             <div className="space-y-4 text-white/90">
               {paragraphs.map((paragraph, index) => (
-                <p key={index} className="leading-relaxed">
+                <p key={index} className="leading-relaxed text-justify">
                   {paragraph}
                 </p>
               ))}
             </div>
-
             {/* Quick Facts - Updated styling */}
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div
@@ -133,9 +133,9 @@ export default function AboutHero({ block }: AboutHeroBlockProps) {
                 </div>
                 <div>
                   <p className="text-2xl font-bold" style={{ color: mainColor }}>
-                    25+
+                    40+
                   </p>
-                  <p className="text-sm text-gray-600">Years Experience</p>
+                  <p className="text-sm text-gray-600">Combined Years of Experience</p>
                 </div>
               </div>
               <div

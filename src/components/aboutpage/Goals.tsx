@@ -37,7 +37,7 @@ export default function GoalsSection({ block }: GoalsBlockProps) {
                 </h3>
               </div>
 
-              <p className="text-gray-700 leading-relaxed mb-6">{mission}</p>
+              <p className="text-gray-700 leading-relaxed mb-6 text-justify">{mission}</p>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export default function GoalsSection({ block }: GoalsBlockProps) {
                 </h3>
               </div>
 
-              <p className="text-gray-700 leading-relaxed mb-6">{vision}</p>
+              <p className="text-gray-700 leading-relaxed mb-6 text-justify">{vision}</p>
             </div>
           </div>
         </div>

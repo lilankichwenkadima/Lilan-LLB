@@ -19,10 +19,6 @@ import Team from './collections/Team'
 import Publications from './collections/Publications'
 import Newsletter from './collections/Newsletter'
 
-// globals
-import { Header } from './globals/Header'
-import { Footer } from './globals/Footer'
-
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -39,7 +35,6 @@ export default buildConfig({
   },
   cors: '*',
   collections: [Users, Media, Newsletter, Publications, Pages, PracticeAreas, Departments, Team],
-  globals: [Header, Footer],
   serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
   // serverURL: 'http://localhost:3000',
   editor: lexicalEditor(),
