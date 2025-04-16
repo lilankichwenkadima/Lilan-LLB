@@ -4,7 +4,6 @@ import HeroBlock from '@/components/homepage/HeroBlock'
 import AboutUsSection from '@/components/homepage/LandingAbout'
 import ServicesCarouselSection from '@/components/homepage/Services'
 import TeamSection from '@/components/homepage/TeamBlock'
-import WhyBlock from '@/components/homepage/WhyBlock'
 import CTABlock from '@/components/homepage/CTABlock'
 
 import config from '@/payload.config'
@@ -45,8 +44,6 @@ function renderBlock(block: any, index: number) {
       return <TeamSection key={index} block={block} />
     case 'services-block':
       return <ServicesCarouselSection key={index} block={block} />
-    case 'why-choose-us':
-      return <WhyBlock key={index} block={block} />
     case 'cta-section':
       return <CTABlock key={index} block={block} />
     default:

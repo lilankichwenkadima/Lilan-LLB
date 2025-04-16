@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { Target, Eye } from 'lucide-react'
+import Link from 'next/link'
 
 interface GoalsBlockProps {
   block: {
@@ -67,15 +68,16 @@ export default function GoalsSection({ block }: GoalsBlockProps) {
             <h3 className="text-xl font-semibold mb-3" style={{ color: mainColor }}>
               Want to learn more about our approach?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-8">
               Schedule a consultation with one of our experienced attorneys today.
             </p>
-            <button
-              className="px-6 py-3 rounded-lg text-white font-medium transition-all hover:opacity-90 shadow-md"
+            <Link
+              href="/contact-us"
+              className="px-6 py-4 rounded-lg text-white font-medium transition-all hover:opacity-90 shadow-md"
               style={{ backgroundColor: mainColor }}
             >
               Contact Our Team
-            </button>
+            </Link>
           </div>
         </div>
       </div>

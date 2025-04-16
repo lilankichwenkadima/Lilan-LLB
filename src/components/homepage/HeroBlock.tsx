@@ -27,9 +27,9 @@ export default function HeroBlock({ block }: HeroBlockProps) {
   const [currentHighlight, setCurrentHighlight] = useState(0)
 
   const highlights = [
-    { icon: Shield, text: 'Protecting Your Rights' },
-    { icon: Scale, text: 'Justice With Integrity' },
-    { icon: BookOpen, text: 'Decades of Experience' },
+    { icon: Shield, text: 'Protecting your rights' },
+    { icon: Scale, text: 'Justice with integrity' },
+    { icon: BookOpen, text: 'Decades of experience' },
   ]
 
   // Setup intersection observer for scroll animations
@@ -127,7 +127,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
             />
 
             <motion.h1
-              className="font-serif text-4xl md:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-white leading-tight"
+              className="hero-header text-4xl md:text-5xl xl:text-5xl font-bold mb-4 md:mb-6 text-white leading-tight"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -142,7 +142,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
               }}
             >
-              <p className="text-lg md:text-xl mb-6 text-white/90 max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-lg mb-6 text-white/90 max-w-2xl leading-relaxed">
                 {subheading}
               </p>
             </motion.div>
@@ -192,9 +192,9 @@ export default function HeroBlock({ block }: HeroBlockProps) {
               <motion.div whileHover={{ y: -4 }} whileTap={{ y: 0 }}>
                 <Link
                   href="/contact-us"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-lg rounded-lg shadow-xl flex items-center justify-center group transition-all duration-300 w-full md:w-auto"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base rounded-lg shadow-xl flex items-center justify-center group transition-all duration-300 w-full md:w-auto"
                 >
-                  Contact Us Today
+                  Contact us today
                   <motion.div className="ml-2" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                     <PhoneCall className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </motion.div>
@@ -204,9 +204,9 @@ export default function HeroBlock({ block }: HeroBlockProps) {
               <motion.div whileHover={{ y: -4 }} whileTap={{ y: 0 }}>
                 <Link
                   href="/practice-areas"
-                  className="border-2 border-white/20 text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-lg rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center"
+                  className="border-2 border-white/20 text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base rounded-lg transition-all duration-300 shadow-lg flex items-center justify-center"
                 >
-                  Our Practice Areas
+                  Our practice areas
                   <ChevronRight className="ml-1 h-5 w-5" />
                 </Link>
               </motion.div>

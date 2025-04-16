@@ -10,6 +10,13 @@ export const PracticeAreasBlock: Block = {
   },
   fields: [
     {
+      name: 'departments',
+      label: 'Departments',
+      type: 'relationship',
+      relationTo: 'departments',
+      hasMany: true,
+    },
+    {
       name: 'practiceAreas',
       label: 'Practice Areas',
       type: 'relationship',

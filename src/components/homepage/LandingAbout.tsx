@@ -68,7 +68,7 @@ export default function AboutUsSection({ block }: AboutUsBlockProps) {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="xl:container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial="hidden"
           animate={controls}
@@ -97,13 +97,7 @@ export default function AboutUsSection({ block }: AboutUsBlockProps) {
 
           {/* Description with drop cap */}
           <motion.div variants={fadeInUp} className="prose prose-lg lg:prose-xl max-w-none mx-auto">
-            <p className="leading-relaxed mb-8 first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-[#003566] first-letter:mr-2 first-letter:float-left">
-              {description}
-            </p>
-
-            {block?.teamDescription && (
-              <p className="leading-relaxed mb-8">{block.teamDescription}</p>
-            )}
+            <p className="leading-relaxed mb-8 text-justify about-p">{description}</p>
           </motion.div>
 
           {/* Stats section */}
@@ -113,7 +107,7 @@ export default function AboutUsSection({ block }: AboutUsBlockProps) {
               <div className="text-gray-600">Combined Years of Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#003566] mb-2">500+</div>
+              <div className="text-4xl font-bold text-[#003566] mb-2">5000+</div>
               <div className="text-gray-600">Cases Won</div>
             </div>
             <div className="text-center">

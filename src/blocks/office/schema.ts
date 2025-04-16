@@ -33,15 +33,15 @@ export const OfficeDetails: Block = {
           type: 'text',
         },
         {
-          name: 'phoneNumbers',
-          label: 'Phone Numbers',
+          name: 'telephone',
+          label: 'Telephone',
           type: 'array',
           minRows: 1,
           fields: [
             {
-              name: 'phoneNumber',
-              label: 'Phone Number',
-              type: 'number',
+              name: 'phone',
+              label: 'Phone',
+              type: 'text',
               required: true,
             },
           ],

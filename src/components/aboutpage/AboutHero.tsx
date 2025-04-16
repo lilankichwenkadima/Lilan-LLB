@@ -42,7 +42,7 @@ export default function AboutHero({ block }: AboutHeroBlockProps) {
                 height={600}
                 priority
                 alt="LilanKichwenKadima Law Firm"
-                className="w-full h-full object-cover"
+                className="w-full h-full aspect-4/3 object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 

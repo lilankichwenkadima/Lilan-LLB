@@ -1,7 +1,6 @@
 import { Hero } from '@/blocks/homepage/hero/schema'
 import { LandingAbout } from '@/blocks/homepage/home-about/schema'
 import { ServicesBlock } from '@/blocks/homepage/services/schema'
-import { WhyChooseUs } from '@/blocks/homepage/why-us/schema'
 import { OurTeam } from '@/blocks/homepage/our-team/schema'
 import { CTA } from '@/blocks/homepage/cta/schema'
 import type { CollectionConfig } from 'payload'
@@ -35,7 +34,6 @@ export const Pages: CollectionConfig = {
         Hero,
         LandingAbout,
         ServicesBlock,
-        WhyChooseUs,
         OurTeam,
         CTA,
         About,

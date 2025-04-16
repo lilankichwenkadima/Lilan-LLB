@@ -10,8 +10,8 @@ interface OfficeProps {
       location: string
       physicalAddress: string
       poBox: string
-      phoneNumbers: {
-        phoneNumber: number
+      telephone: {
+        phone: string
       }[]
       image: { url: string }
     }[]
@@ -144,9 +144,7 @@ export default function OfficeDetails({ block }: OfficeProps) {
                     <h3 className="font-bold text-gray-800 ml-3">Call Us</h3>
                   </div>
                   <ul className="text-gray-600 pl-2 border-l-2 border-blue-200 space-y-1">
-                    {office.phoneNumbers?.map((item, index) => (
-                      <li key={index}>{item.phoneNumber}</li>
-                    ))}
+                    {office.telephone?.map((item, index) => <li key={index}>{item.phone}</li>)}
                   </ul>
                 </div>
 

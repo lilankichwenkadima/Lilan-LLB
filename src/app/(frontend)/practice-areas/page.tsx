@@ -33,7 +33,6 @@ function renderBlock(block: any, index: number) {
   switch (block.blockType) {
     case 'practice-areas-block':
       return <PracticeHeroSection key={index} block={block} />
-
     default:
       return null
   }

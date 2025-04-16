@@ -63,7 +63,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className={`font-serif text-sm md:text-xl font-bold ${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} tracking-wide`}
+                    className={`logo-name font-serif text-sm md:text-xl font-bold ${scrolled ? 'text-[#34373e]' : 'text-[#ffffff]'} tracking-wide`}
                   >
                     LILAN | KICHWEN | KADIMA
                   </span>

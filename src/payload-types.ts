@@ -244,20 +244,6 @@ export interface Page {
             blockType: 'services-block';
           }
         | {
-            heading: string;
-            description: string;
-            listings?:
-              | {
-                  title: string;
-                  content: string;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'why-choose-us';
-          }
-        | {
             attorney_profiles?: (number | Team)[] | null;
             id?: string | null;
             blockName?: string | null;
@@ -285,6 +271,7 @@ export interface Page {
             blockType: 'goals';
           }
         | {
+            departments?: (number | Department)[] | null;
             practiceAreas?: (number | PracticeArea)[] | null;
             id?: string | null;
             blockName?: string | null;
@@ -296,9 +283,9 @@ export interface Page {
                   location: string;
                   physicalAddress: string;
                   poBox?: string | null;
-                  phoneNumbers?:
+                  telephone?:
                     | {
-                        phoneNumber: number;
+                        phone: string;
                         id?: string | null;
                       }[]
                     | null;
@@ -791,21 +778,6 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        'why-choose-us'?:
-          | T
-          | {
-              heading?: T;
-              description?: T;
-              listings?:
-                | T
-                | {
-                    title?: T;
-                    content?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
         'our-team'?:
           | T
           | {
@@ -840,6 +812,7 @@ export interface PagesSelect<T extends boolean = true> {
         'practice-areas-block'?:
           | T
           | {
+              departments?: T;
               practiceAreas?: T;
               id?: T;
               blockName?: T;
@@ -853,10 +826,10 @@ export interface PagesSelect<T extends boolean = true> {
                     location?: T;
                     physicalAddress?: T;
                     poBox?: T;
-                    phoneNumbers?:
+                    telephone?:
                       | T
                       | {
-                          phoneNumber?: T;
+                          phone?: T;
                           id?: T;
                         };
                     image?: T;
