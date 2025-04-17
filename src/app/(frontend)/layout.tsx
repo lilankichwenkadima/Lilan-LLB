@@ -2,6 +2,7 @@ import React from 'react'
 import './globals.css'
 import Navbar from '@/components/navigation/Navbar'
 import Footer from '@/components/navigation/Footer'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'Lilan | Kichwen | Kadima Advocates LLP',
@@ -34,6 +35,27 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics (or Google Tag Manager) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PQ3DQ7Z5ZJ"
+          strategy="afterInteractive"
+        />
+
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PQ3DQ7Z5ZJ');
+            `,
+          }}
+        />
+      </head>
       <body>
         <main>
           <Navbar />
