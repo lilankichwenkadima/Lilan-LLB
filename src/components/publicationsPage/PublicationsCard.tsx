@@ -6,6 +6,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, ArrowRight } from 'lucide-react'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function PublicationCard({ post }: { post: any }) {
   return (
     <div className="flex flex-col border-2 border-[#003566] rounded-lg overflow-hidden hover:shadow-lg transition-shadow h-full">

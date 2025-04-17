@@ -107,7 +107,9 @@ function NewsletterSignup() {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
   const [alreadySubscribed, setAlreadySubscribed] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
