@@ -8,6 +8,9 @@ export const Team: CollectionConfig = {
     useAsTitle: 'name',
     description: 'Add Team Member',
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'name',
