@@ -9,11 +9,8 @@ type Props = {
 }
 
 export default async function PublicationsPage({ searchParams }: Props) {
-  console.log('SearchParams:', searchParams)
-
   const currentPage = Number(searchParams?.page) || 1
   const { posts, pagination } = await fetchPaginatedPosts(currentPage)
-  console.log('Current Page:', currentPage)
 
   return (
     <section className="py-12 container mx-auto px-4">

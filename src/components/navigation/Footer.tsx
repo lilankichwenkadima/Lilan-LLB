@@ -35,12 +35,12 @@ export default function Footer() {
               <h2 className="font-serif text-base font-bold text-white">
                 LILAN<span className="text-[#74b1dd]">KICHWEN</span>KADIMA
               </h2>
-              <p className="text-xs text-white/80 uppercase tracking-wider">Attorneys at Law</p>
+              <p className="text-xs text-white/80 uppercase tracking-wider">Advocates LLP</p>
             </div>
           </div>
 
           <p className="text-white/80 text-sm leading-relaxed">
-            With decades of combined experience, our attorneys provide strategic counsel and
+            With decades of combined experience, our advocates provide strategic counsel and
             aggressive advocacy tailored to your unique legal challenges.
           </p>
 
@@ -92,7 +92,7 @@ export default function Footer() {
               <p className="text-white/70 text-sm">
                 Madonna House, 3rd Floor, A312
                 <br />
-                Nairobi, Kenya
+                Westlands, Nairobi
               </p>
             </div>
             <div className="flex items-start gap-3">
