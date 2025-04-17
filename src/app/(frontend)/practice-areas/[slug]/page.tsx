@@ -154,11 +154,11 @@ export default async function PracticeDescription({
                 </p>
 
                 <Link
-                  href="tel:+254742954153"
+                  href="tel:+254790039031"
                   className="w-full flex justify-center items-center bg-[#003566] hover:bg-[#003566cb] text-white font-medium py-4 px-2 rounded-lg transition-colors shadow-md"
                 >
                   <Phone className="h-5 w-5 text-white mr-3" />
-                  Call us: +2547 429 54153
+                  Call us: +254 790 039 031
                 </Link>
               </div>
             </div>

@@ -18,7 +18,7 @@ export default function CTABlock({ block }: HeroBlockProps) {
   const heading = block?.title || 'Let Us Help You'
   const subheading =
     block?.description || 'Let us help you navigate the complexities of the legal system.'
-  const backgroundImage = block?.backgroundImage || '/api/placeholder/1200/800'
+  const backgroundImage = block?.backgroundImage || '/bg.jpg'
 
   // Setup intersection observer for scroll animations
   const controls = useAnimation()

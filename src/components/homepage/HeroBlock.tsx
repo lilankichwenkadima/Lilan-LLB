@@ -20,7 +20,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
   const subheading =
     block?.subheading ||
     'With decades of combined experience, our attorneys provide strategic counsel and aggressive advocacy tailored to your unique legal challenges.'
-  const heroImage = block?.hero_image?.url || '/api/placeholder/1600/900'
+  const heroImage = block?.hero_image?.url || '/bg.jpg'
 
   // State to hold the background image load status
   const [isImageLoaded, setIsImageLoaded] = useState(false)
