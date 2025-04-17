@@ -49,43 +49,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: '${process.env.NEXT_PUBLIC_SITE_URL}',
+      url: 'https://www.lilankichwenkadima.com',
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: '${process.env.NEXT_PUBLIC_SITE_URL}/who-we-are',
+      url: 'https://www.lilankichwenkadima.com/who-we-are',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: '${process.env.NEXT_PUBLIC_SITE_URL}/publications',
+      url: 'https://www.lilankichwenkadima.com/publications',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
-      url: '${process.env.NEXT_PUBLIC_SITE_URL}/our-team',
+      url: 'https://www.lilankichwenkadima.com/our-team',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
-      url: '${process.env.NEXT_PUBLIC_SITE_URL}/practice-areas',
+      url: 'https://www.lilankichwenkadima.com/practice-areas',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
-      url: '${process.env.NEXT_PUBLIC_SITE_URL}/office-details',
+      url: 'https://www.lilankichwenkadima.com/office-details',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
-      url: '${process.env.NEXT_PUBLIC_SITE_URL}/contact-us',
+      url: 'https://www.lilankichwenkadima.com/contact-us',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
