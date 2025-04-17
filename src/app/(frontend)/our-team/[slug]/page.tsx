@@ -18,6 +18,64 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { RichText } from '@/components/RichText'
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+
+  const payloadConfig = await config
+  const payload = await getPayload({ config: payloadConfig })
+
+  const { docs } = await payload.find({
+    collection: 'team',
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  })
+
+  const team_member = docs[0]
+
+  if (!team_member) {
+    return {
+      title: 'Team Member Not Found - Lilan | Kichwen | Kadima Advocates LLP',
+      description:
+        'The team member you are looking for could not be found. Meet the rest of our dedicated team at Lilan | Kichwen | Kadima Advocates LLP.',
+    }
+  }
+
+  const memberName = team_member.name || 'Our Team - Lilan | Kichwen | Kadima Advocates LLP'
+  const memberRole = team_member.role || 'Team Member at Lilan | Kichwen | Kadima Advocates LLP'
+  const memberBioExcerpt =
+    (Array.isArray(team_member.bio) && team_member.bio[0]?.children?.[0]?.text?.slice(0, 150)) ||
+    'Discover our team of dedicated legal professionals at Lilan | Kichwen | Kadima Advocates LLP.'
+
+  return {
+    title: `${memberName} - ${memberRole} | Lilan | Kichwen | Kadima Advocates LLP`,
+    description: memberBioExcerpt,
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+    openGraph: {
+      title: `${memberName} - ${memberRole} | Lilan | Kichwen | Kadima Advocates LLP`,
+      description: memberBioExcerpt,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/our-team/${slug}`,
+      images: [
+        {
+          url:
+            team_member.photo && typeof team_member.photo === 'object' && team_member.photo.url
+              ? team_member.photo.url
+              : '/default-image.jpg', // fallback if no image
+          width: 1200,
+          height: 630,
+          alt: memberName,
+        },
+      ],
+      type: 'profile',
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/our-team/${slug}`,
+    },
+  }
+}
+
 export default async function TeamDescription({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const payloadConfig = await config

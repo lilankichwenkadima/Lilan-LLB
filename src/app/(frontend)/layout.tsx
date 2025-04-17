@@ -4,9 +4,29 @@ import Navbar from '@/components/navigation/Navbar'
 import Footer from '@/components/navigation/Footer'
 
 export const metadata = {
-  description:
-    'We strive to be trusted advisors, guiding individuals and businesses through complex legal landscapes with precision, integrity, and transparency. By adopting a client-centric approach, we ensure that every client is empowered with the tools, understanding, and strategies needed to navigate legal challenges effectively. At CS Lilan | Kichwen | Kadima | Gamaliel Advocates LLP, your success, security, and informed decision-making are our top priorities.',
   title: 'Lilan | Kichwen | Kadima Advocates LLP',
+  description:
+    'At Lilan | Kichwen | Kadima Advocates LLP, we provide strategic, ethical, and results-driven legal services across diverse practice areas. Our client-centered approach empowers individuals and businesses with trusted guidance and clarity.',
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+  openGraph: {
+    title:
+      'Lilan | Kichwen | Kadima Advocates LLP - Strategic, Ethical, and Client-Focused Legal Solutions',
+    description:
+      'Discover how Lilan | Kichwen | Kadima Advocates LLP delivers trusted, strategic, and client-centric legal solutions. Championing your rights with precision, integrity, and excellence.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+    images: [
+      {
+        url: '/logo1.png', // Consider using a strong branded homepage image later (like office/team photo)
+        width: 1200,
+        height: 630,
+        alt: 'Lilan | Kichwen | Kadima Advocates LLP',
+      },
+    ],
+    type: 'website',
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+  },
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {

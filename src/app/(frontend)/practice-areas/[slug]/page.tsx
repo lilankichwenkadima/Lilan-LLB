@@ -6,6 +6,58 @@ import { ArrowLeft, Phone, FileText, Users, ChevronRight } from 'lucide-react'
 import { fetchAllPracticeAreas, fetchRelatedPracticeAreas } from '@/lib/practiceAreaUtils'
 import { RichText } from '@/components/RichText'
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const payloadConfig = await config
+  const payload = await getPayload({ config: payloadConfig })
+
+  const { docs } = await payload.find({
+    collection: 'practice-areas',
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  })
+
+  const practiceArea = docs[0]
+
+  if (!practiceArea) {
+    return {
+      title: 'Practice Area Not Found - Lilan | Kichwen | Kadima Advocates LLP',
+      description:
+        'The practice area you are looking for could not be found. Discover more about our expertise across various legal sectors.',
+    }
+  }
+
+  const practiceAreaTitle =
+    practiceArea.title || 'Practice Area - Lilan | Kichwen | Kadima Advocates LLP'
+  const practiceAreaDescription = `Explore our expertise in ${practiceArea.title}. Lilan | Kichwen | Kadima Advocates LLP provides strategic legal solutions.`
+
+  return {
+    title: `${practiceAreaTitle} - Lilan | Kichwen | Kadima Advocates LLP`,
+    description: practiceAreaDescription,
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+    openGraph: {
+      title: `${practiceAreaTitle} - Lilan | Kichwen | Kadima Advocates LLP`,
+      description: practiceAreaDescription,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/practice-areas/${slug}`,
+      images: [
+        {
+          url: '/bg.jpg', // fallback image (unless you later add a specific coverImage field for practice areas)
+          width: 1200,
+          height: 630,
+          alt: practiceArea.title,
+        },
+      ],
+      type: 'article',
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/practice-areas/${slug}`,
+    },
+  }
+}
+
 export default async function PracticeDescription({
   params,
 }: {

@@ -8,6 +8,63 @@ import { formatDistanceToNow } from 'date-fns'
 import { fetchPaginatedPosts, fetchRelatedPosts } from '@/lib/postsUtil'
 import { RichText } from '@/components/RichText'
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+
+  const payloadConfig = await config
+  const payload = await getPayload({ config: payloadConfig })
+
+  const { docs } = await payload.find({
+    collection: 'publications',
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+    depth: 2,
+  })
+
+  const post = docs[0]
+
+  if (!post) {
+    return {
+      title: 'Publication Not Found - Lilan | Kichwen | Kadima Advocates LLP',
+      description:
+        'The publication you are looking for could not be found. Discover more legal insights from our firm.',
+    }
+  }
+
+  const postTitle = post.title || 'Publication - Lilan | Kichwen | Kadima Advocates LLP'
+  const postExcerpt =
+    'Discover legal insights and strategic guidance from Lilan | Kichwen | Kadima Advocates LLP.'
+
+  return {
+    title: `${postTitle} - Lilan | Kichwen | Kadima Advocates LLP`,
+    description: postExcerpt,
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
+    openGraph: {
+      title: `${postTitle} - Lilan | Kichwen | Kadima Advocates LLP`,
+      description: postExcerpt,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/publications/${slug}`,
+      images: [
+        {
+          url:
+            post.coverImage && typeof post.coverImage === 'object' && post.coverImage.url
+              ? post.coverImage.url
+              : '/bg.jpg', // fallback background
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      type: 'article',
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/publications/${slug}`,
+    },
+  }
+}
+
 export default async function PublicationPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const payloadConfig = await config
