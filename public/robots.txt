@@ -1,0 +1,21 @@
+# *
+User-agent: *
+Allow: /
+Allow: /who-we-are/
+Allow: /contact-us
+Allow: /practice-areas/
+Allow: /publications/
+Allow: /office-details
+Allow: /our-team
+
+# *
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /__next/
+
+# Host
+Host: https://lilankichwenkadima.com
+
+# Sitemaps
+Sitemap: https://www.lilankichwenkadima.com
