@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { fetchPaginatedPosts } from '@/lib/postsUtil'
 import PublicationHero from '@/components/publicationsPage/PublicationHero'
 import PublicationCard from '@/components/publicationsPage/PublicationsCard'
