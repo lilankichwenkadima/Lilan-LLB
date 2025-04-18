@@ -103,7 +103,7 @@ export default async function PublicationPage({ params }: { params: Promise<{ sl
   return (
     <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
       {/* Cover Image with Parallax Effect */}
-      <div className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
+      <div className="relative h-[26vh] md:h-[60vh] overflow-hidden">
         {post.coverImage ? (
           <div className="absolute inset-0 transform scale-105">
             <Image
@@ -121,7 +121,7 @@ export default async function PublicationPage({ params }: { params: Promise<{ sl
           </div>
         ) : (
           <div className="absolute inset-0 bg-gradient-to-r from-[#003566] to-[#0077b6]">
-            <div className="absolute inset-0 opacity-20 bg-[url('/pattern.svg')]"></div>
+            <div className="absolute inset-0 opacity-20 bg-[url('/bg.jpg')]"></div>
           </div>
         )}
       </div>

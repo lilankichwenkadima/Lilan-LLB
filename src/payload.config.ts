@@ -34,6 +34,18 @@ export default buildConfig({
         Icon: './components/admin/Icon',
       },
     },
+    livePreview: {
+      url: process.env.NEXT_PUBLIC_PAYLOAD_URL,
+      collections: [
+        'Media',
+        'Newsletter',
+        'Publications',
+        'Pages',
+        'PracticeAreas',
+        'Departments',
+        'Team',
+      ],
+    },
     meta: {
       title: 'LilanKichwenKadima LLB',
       description: 'LilanKichwenKadima LLB Official Website',
