@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { PhoneCall, ChevronRight, Scale, Shield, BookOpen } from 'lucide-react'
+import { PhoneCall, ChevronRight, Scale, Shield, BookOpen, ShieldUser } from 'lucide-react'
 import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { useInView } from 'react-intersection-observer'
@@ -26,10 +26,17 @@ export default function HeroBlock({ block }: HeroBlockProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
   const [currentHighlight, setCurrentHighlight] = useState(0)
 
+  // const highlights = [
+  //   { icon: Shield, text: 'Protecting your rights' },
+  //   { icon: Scale, text: 'Justice with integrity' },
+  //   { icon: BookOpen, text: 'Decades of experience' },
+  // ]
+
   const highlights = [
-    { icon: Shield, text: 'Protecting your rights' },
-    { icon: Scale, text: 'Justice with integrity' },
-    { icon: BookOpen, text: 'Decades of experience' },
+    { icon: Shield, text: 'Ethical Practice' },
+    { icon: Scale, text: 'Strategic Counsel' },
+    { icon: BookOpen, text: 'Results-Driven' },
+    { icon: ShieldUser, text: 'Client-Centric Approach' },
   ]
 
   // Setup intersection observer for scroll animations
