@@ -19,7 +19,7 @@ export default function HeroBlock({ block }: HeroBlockProps) {
   const heading = block?.heading || 'Expert Legal Representation For Complex Matters'
   const subheading =
     block?.subheading ||
-    'With decades of combined experience, our attorneys provide strategic counsel and aggressive advocacy tailored to your unique legal challenges.'
+    'With decades of combined experience, our attorneys provide strategic counsel and aggressive advocacy tailored to your unique legal challenges'
   const heroImage = block?.hero_image?.url || '/bg.jpg'
 
   // State to hold the background image load status
