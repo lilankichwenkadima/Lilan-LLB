@@ -4,7 +4,12 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig = {
   // Your Next.js config here
   images: {
-    domains: ['localhost', 'lilan-llb-production.up.railway.app', 'www.lilankichwenkadima.com'],
+    domains: [
+      'localhost',
+      'lilan-llb-production.up.railway.app',
+      'www.lilankichwenkadima.com',
+      'lilankichwenkadima-lilankichwenkadimas-projects.vercel.app',
+    ],
   },
 }
 
