@@ -64,7 +64,7 @@ export default buildConfig({
       robots: 'noindex, nofollow',
     },
   },
-  cors: '*',
+  cors: ['https://www.lilankichwenkadima.com'],
   collections: [Users, Media, Newsletter, Publications, Pages, PracticeAreas, Departments, Team],
   serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
   // serverURL: 'http://localhost:3000',
