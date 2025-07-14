@@ -8,6 +8,7 @@ const nextConfig = {
       'localhost',
       'lilan-llb-production.up.railway.app',
       'www.lilankichwenkadima.com',
+      'lilankichwenkadima.com',
       'lilankichwenkadima-lilankichwenkadimas-projects.vercel.app',
     ],
   },
